@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kafein — meni</title>
+<meta name="description" content="Meni i cenovnik — Kafein, Beograd. Na 10 jezika.">
+<meta name="theme-color" content="#F2F0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110E" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..700&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokeni: svetla tema je osnova ---------- */
+:root{
+  --paper:#F2F0EA; --ink:#1A1712; --muted:#5E5750;
+  --brass:#8A5D0F; --line:#DFDAD0; --raise:#FFFFFF; --senka:rgba(26,23,18,.07);
+  --scrim-a:rgba(12,10,8,.15); --scrim-b:rgba(12,10,8,.72);
+  --gutter:20px;
+}
+/* sistemski tamni - samo kad gost nije sam izabrao temu */
+@media (prefers-color-scheme: dark){
+  :root:not([data-tema]){
+    --paper:#14110E; --ink:#F0EBE1; --muted:#A89E8F;
+    --brass:#D9A441; --line:#2E2822; --raise:#1C1814; --senka:rgba(0,0,0,.4);
+    --scrim-a:rgba(8,6,5,.25); --scrim-b:rgba(8,6,5,.8);
+  }
+}
+/* tema koju postavlja platforma (artifact) - takodje ustupa gostovom izboru */
+:root[data-theme="dark"]:not([data-tema]){
+  --paper:#14110E; --ink:#F0EBE1; --muted:#A89E8F;
+  --brass:#D9A441; --line:#2E2822; --raise:#1C1814; --senka:rgba(0,0,0,.4);
+  --scrim-a:rgba(8,6,5,.25); --scrim-b:rgba(8,6,5,.8);
+}
+/* gostov izbor pobedjuje sve */
+:root[data-tema="dark"]{
+  --paper:#14110E; --ink:#F0EBE1; --muted:#A89E8F;
+  --brass:#D9A441; --line:#2E2822; --raise:#1C1814; --senka:rgba(0,0,0,.4);
+  --scrim-a:rgba(8,6,5,.25); --scrim-b:rgba(8,6,5,.8);
+}
+:root[data-tema="light"]{
+  --paper:#F2F0EA; --ink:#1A1712; --muted:#5E5750;
+  --brass:#8A5D0F; --line:#DFDAD0; --raise:#FFFFFF; --senka:rgba(26,23,18,.07);
+  --scrim-a:rgba(12,10,8,.15); --scrim-b:rgba(12,10,8,.72);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:Archivo,"Noto Sans","Segoe UI",system-ui,-apple-system,
+              "Noto Sans Arabic","Noto Naskh Arabic","Noto Sans SC",
+              "Microsoft YaHei","PingFang SC",sans-serif;
+  font-size:16px; line-height:1.45; -webkit-font-smoothing:antialiased;
+  transition:background-color .28s ease, color .28s ease;
+}
+.omot{max-width:620px; margin:0 auto}
+.pad{padding-inline:var(--gutter)}
+
+/* ---------- hero ---------- */
+.hero{position:relative; overflow:hidden}
+.hero.sa-slikom{min-height:clamp(230px,44vw,310px); display:flex; align-items:flex-end}
+.hero-slika{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; display:block;
+}
+.hero.sa-slikom::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to bottom,var(--scrim-a) 0%,var(--scrim-b) 100%);
+}
+.hero-tekst{position:relative; z-index:1; padding-block:26px 20px; width:100%}
+.hero.sa-slikom .hero-tekst{padding-block:0 22px}
+.naslov{margin:0; font-size:clamp(30px,9vw,42px); font-weight:700; letter-spacing:-.028em; line-height:1.02}
+.mesto{margin:4px 0 0; font-size:13px; letter-spacing:.14em; text-transform:uppercase}
+.hero.sa-slikom .naslov{color:#FBF8F2; text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.hero.sa-slikom .mesto{color:rgba(251,248,242,.82); text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.hero:not(.sa-slikom) .mesto{color:var(--muted)}
+
+/* ---------- alatke: jezik + tema ---------- */
+.alatke{display:flex; gap:9px; align-items:stretch; margin-top:16px}
+.jez{
+  flex:1 1 auto; min-width:0;
+  display:flex; align-items:center; gap:8px;
+  border:1px solid var(--line); background:var(--raise);
+  border-radius:11px; padding:9px 12px; box-shadow:0 1px 2px var(--senka);
+}
+.jez svg{flex:0 0 auto; width:17px; height:17px; stroke:var(--brass); fill:none; stroke-width:1.7}
+.jez label{font-size:11px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; white-space:nowrap}
+.jez select{
+  flex:1 1 auto; min-width:0; appearance:none; background:transparent; border:none;
+  color:var(--ink); font:inherit; font-size:15px; font-weight:600; padding:2px 0; cursor:pointer;
+}
+.jez select:focus{outline:none}
+.jez:focus-within{border-color:var(--brass)}
+
+.tema{
+  flex:0 0 auto; width:46px;
+  display:grid; place-items:center; cursor:pointer;
+  border:1px solid var(--line); background:var(--raise);
+  border-radius:11px; padding:0; box-shadow:0 1px 2px var(--senka);
+  color:var(--ink);
+}
+.tema svg{width:19px; height:19px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round}
+.tema .mesec{display:none}
+:root[data-tema="dark"] .tema .sunce,
+:root[data-theme="dark"]:not([data-tema]) .tema .sunce{display:none}
+:root[data-tema="dark"] .tema .mesec,
+:root[data-theme="dark"]:not([data-tema]) .tema .mesec{display:block}
+@media (prefers-color-scheme: dark){
+  :root:not([data-tema]) .tema .sunce{display:none}
+  :root:not([data-tema]) .tema .mesec{display:block}
+}
+.tema:focus-visible,.jez select:focus-visible{outline:2px solid var(--brass); outline-offset:2px}
+
+/* ---------- traka kategorija ---------- */
+.traka{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:6;
+  background:var(--paper); border-bottom:1px solid var(--line);
+  padding-block:11px; margin-top:18px;
+  overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.traka::-webkit-scrollbar{display:none}
+.traka ul{display:flex; gap:7px; margin:0; padding-inline:var(--gutter); list-style:none; width:max-content}
+.cip{
+  display:block; text-decoration:none; white-space:nowrap;
+  font-size:13.5px; font-weight:500; color:var(--muted);
+  border:1px solid var(--line); border-radius:99px; padding:6px 13px;
+  transition:color .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.cip[aria-current="true"]{color:var(--paper); background:var(--ink); border-color:var(--ink)}
+.cip:focus-visible{outline:2px solid var(--brass); outline-offset:2px}
+
+/* ---------- kategorije ---------- */
+section{margin-top:34px; scroll-margin-top:64px}
+.zaglavlje-kat{display:flex; align-items:center; gap:11px; margin-bottom:13px}
+.slicica{
+  flex:0 0 auto; width:44px; height:44px; border-radius:10px;
+  object-fit:cover; display:block; box-shadow:0 1px 3px var(--senka);
+}
+h2{
+  margin:0; font-size:12.5px; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--brass);
+}
+.lista{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.red{
+  display:flex; align-items:baseline; gap:14px;
+  padding-block:11px; border-bottom:1px solid var(--line);
+}
+.red:last-child{border-bottom:none}
+.ime{flex:1 1 auto; min-width:0}
+.naziv-stavke{display:block; font-size:16px; font-weight:500; overflow-wrap:anywhere}
+.opis{display:block; margin-top:2px; font-size:13.5px; color:var(--muted); overflow-wrap:anywhere}
+.cena{flex:0 0 auto; font-weight:600; font-variant-numeric:tabular-nums; min-width:3.6ch; text-align:right}
+[dir="rtl"] .cena{text-align:left}
+
+.dno{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
+.dno p{margin:0 0 5px}
+.dno a{color:var(--brass)}
+.dno .demo{opacity:.75}
+.dno-pad{padding-bottom:48px}
+
+/* ---------- skrol animacije: CSS timeline, bez biblioteke ---------- */
+/* Strana je citljiva i bez ovoga - animacija je samo dodatak. */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    section{
+      animation:ulaz linear both;
+      animation-timeline:view();
+      animation-range:entry 0% entry 42%;
+    }
+    .hero-tekst{
+      animation:hero linear both;
+      animation-timeline:view();
+      animation-range:exit 0% exit 100%;
+    }
+    .hero-slika{
+      animation:zum linear both;
+      animation-timeline:view();
+      animation-range:exit 0% exit 100%;
+    }
+  }
+}
+@keyframes ulaz{from{opacity:.25; transform:translateY(14px)} to{opacity:1; transform:none}}
+@keyframes hero{from{opacity:1; transform:none} to{opacity:.35; transform:translateY(-16px)}}
+@keyframes zum{from{transform:scale(1)} to{transform:scale(1.08)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="omot">
+  <header class="hero" id="hero">
+    <div class="hero-tekst pad">
+      <h1 class="naslov">Kafein</h1>
+      <p class="mesto">Beograd</p>
+      <div class="alatke">
+        <div class="jez">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+          <label for="izbor-jezika" id="ozn-jezik">Jezik</label>
+          <select id="izbor-jezika"></select>
+        </div>
+        <button class="tema" id="prekidac-teme" type="button">
+          <svg class="sunce" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+          <svg class="mesec" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="traka" id="traka"><ul id="cipovi"></ul></nav>
+
+  <div id="sadrzaj" class="pad"></div>
+
+  <footer class="dno pad dno-pad">
+    <p id="pdv"></p>
+    <p><span id="izradio"></span> <a href="https://instagram.com/sajt_servis.rs">Sajt Servis</a></p>
+    <p class="demo" id="demo"></p>
+  </footer>
+</div>
+
+<script id="podaci" type="application/json">{"naziv":"Kafein","podnaslov":"Beograd","jezici":[{"k":"sr","ime":"Srpski","dir":"ltr"},{"k":"en","ime":"English","dir":"ltr"},{"k":"ru","ime":"Русский","dir":"ltr"},{"k":"de","ime":"Deutsch","dir":"ltr"},{"k":"tr","ime":"Türkçe","dir":"ltr"},{"k":"zh","ime":"中文","dir":"ltr"},{"k":"ar","ime":"العربية","dir":"rtl"},{"k":"es","ime":"Español","dir":"ltr"},{"k":"it","ime":"Italiano","dir":"ltr"},{"k":"fr","ime":"Français","dir":"ltr"}],"ui":{"pdv":{"sr":"Cene su izražene u RSD sa uračunatim PDV-om.","en":"All prices in RSD, VAT included.","ru":"Цены указаны в динарах (RSD), НДС включён.","de":"Alle Preise in RSD, inkl. MwSt.","tr":"Fiyatlar RSD cinsindendir, KDV dahildir.","zh":"价格以塞尔维亚第纳尔（RSD）计，含增值税。","ar":"جميع الأسعار بالدينار الصربي شاملة ضريبة القيمة المضافة.","es":"Precios en RSD, IVA incluido.","it":"Prezzi in RSD, IVA inclusa.","fr":"Prix en RSD, TVA incluse."},"izradio":{"sr":"Meni izradio","en":"Menu by","ru":"Меню создано","de":"Menü von","tr":"Menü:","zh":"菜单由","ar":"القائمة من إعداد","es":"Menú creado por","it":"Menu realizzato da","fr":"Menu réalisé par"},"demo":{"sr":"Demo primer — nije zvanična stranica objekta.","en":"Demo example — not the venue's official page.","ru":"Демо-пример — не официальная страница заведения.","de":"Demo-Beispiel — nicht die offizielle Seite des Lokals.","tr":"Demo örnek — mekânın resmî sayfası değildir.","zh":"演示示例 — 非该店官方页面。","ar":"مثال تجريبي — ليست الصفحة الرسمية للمكان.","es":"Ejemplo de demostración — no es la página oficial del local.","it":"Esempio dimostrativo — non è la pagina ufficiale del locale.","fr":"Exemple de démonstration — pas la page officielle de l'établissement."},"jezik":{"sr":"Jezik","en":"Language","ru":"Язык","de":"Sprache","tr":"Dil","zh":"语言","ar":"اللغة","es":"Idioma","it":"Lingua","fr":"Langue"},"tema_svetla":{"sr":"Svetla tema","en":"Light mode","ru":"Светлая тема","de":"Heller Modus","tr":"Açık tema","zh":"浅色模式","ar":"الوضع الفاتح","es":"Modo claro","it":"Tema chiara","fr":"Mode clair"},"tema_tamna":{"sr":"Tamna tema","en":"Dark mode","ru":"Тёмная тема","de":"Dunkler Modus","tr":"Koyu tema","zh":"深色模式","ar":"الوضع الداكن","es":"Modo oscuro","it":"Tema scura","fr":"Mode sombre"},"kategorije":{"sr":"Kategorije","en":"Categories","ru":"Категории","de":"Kategorien","tr":"Kategoriler","zh":"分类","ar":"الفئات","es":"Categorías","it":"Categorie","fr":"Catégories"}},"kategorije":[{"naziv":{"sr":"Kafa","en":"Coffee","ru":"Кофе","de":"Kaffee","tr":"Kahve","zh":"咖啡","ar":"قهوة","es":"Café","it":"Caffè","fr":"Café"},"stavke":[{"naziv":{"sr":"Espresso","en":"Espresso","ru":"Эспрессо","de":"Espresso","tr":"Espresso","zh":"浓缩咖啡","ar":"إسبريسو","es":"Espresso","it":"Espresso","fr":"Espresso"},"cena":245},{"naziv":{"sr":"Cappuccino","en":"Cappuccino","ru":"Капучино","de":"Cappuccino","tr":"Cappuccino","zh":"卡布奇诺","ar":"كابتشينو","es":"Cappuccino","it":"Cappuccino","fr":"Cappuccino"},"cena":305},{"naziv":{"sr":"Cappuccino sa ovsenim mlekom","en":"Cappuccino with oat milk","ru":"Капучино на овсяном молоке","de":"Cappuccino mit Hafermilch","tr":"Yulaf sütlü cappuccino","zh":"燕麦奶卡布奇诺","ar":"كابتشينو بحليب الشوفان","es":"Cappuccino con leche de avena","it":"Cappuccino con latte d'avena","fr":"Cappuccino au lait d'avoine"},"cena":305}]},{"naziv":{"sr":"Kaše","en":"Porridge & Bowls","ru":"Каши","de":"Porridge","tr":"Yulaf Lapası","zh":"燕麦粥","ar":"عصيدة الشوفان","es":"Gachas","it":"Porridge","fr":"Porridge"},"stavke":[{"naziv":{"sr":"Proteinska ovsena kaša","en":"Protein oat porridge","ru":"Протеиновая овсяная каша","de":"Protein-Haferbrei","tr":"Proteinli yulaf lapası","zh":"蛋白燕麦粥","ar":"عصيدة شوفان بالبروتين","es":"Gachas de avena con proteína","it":"Porridge proteico d'avena","fr":"Porridge protéiné à l'avoine"},"opis":{"sr":"Kikiriki puter i banana","en":"Peanut butter and banana","ru":"Арахисовая паста и банан","de":"Erdnussbutter und Banane","tr":"Fıstık ezmesi ve muz","zh":"花生酱与香蕉","ar":"زبدة الفول السوداني والموز","es":"Mantequilla de cacahuete y plátano","it":"Burro di arachidi e banana","fr":"Beurre de cacahuète et banane"},"cena":650},{"naziv":{"sr":"Crunch pistać protein","en":"Crunchy pistachio protein","ru":"Хрустящий фисташковый протеин","de":"Knuspriger Pistazien-Protein","tr":"Çıtır antep fıstıklı protein","zh":"香脆开心果蛋白","ar":"بروتين الفستق المقرمش","es":"Proteína de pistacho crujiente","it":"Proteine al pistacchio croccante","fr":"Protéine pistache croustillante"},"cena":650},{"naziv":{"sr":"Kremasta ovsena kaša","en":"Creamy oat porridge","ru":"Кремовая овсяная каша","de":"Cremiger Haferbrei","tr":"Kremalı yulaf lapası","zh":"奶香燕麦粥","ar":"عصيدة شوفان كريمية","es":"Gachas de avena cremosas","it":"Porridge d'avena cremoso","fr":"Porridge d'avoine crémeux"},"opis":{"sr":"Kikiriki puter i banana","en":"Peanut butter and banana","ru":"Арахисовая паста и банан","de":"Erdnussbutter und Banane","tr":"Fıstık ezmesi ve muz","zh":"花生酱与香蕉","ar":"زبدة الفول السوداني والموز","es":"Mantequilla de cacahuete y plátano","it":"Burro di arachidi e banana","fr":"Beurre de cacahuète et banane"},"cena":540},{"naziv":{"sr":"Ovsena kaša malina i pistać","en":"Oat porridge with raspberry and pistachio","ru":"Овсяная каша с малиной и фисташкой","de":"Haferbrei mit Himbeere und Pistazie","tr":"Ahududu ve antep fıstıklı yulaf lapası","zh":"树莓开心果燕麦粥","ar":"عصيدة شوفان بالتوت والفستق","es":"Gachas de avena con frambuesa y pistacho","it":"Porridge d'avena con lampone e pistacchio","fr":"Porridge d'avoine framboise et pistache"},"cena":540},{"naziv":{"sr":"Crunch pistać činija","en":"Crunchy pistachio bowl","ru":"Хрустящая фисташковая чаша","de":"Knusprige Pistazien-Bowl","tr":"Çıtır antep fıstıklı kase","zh":"香脆开心果碗","ar":"وعاء الفستق المقرمش","es":"Bol de pistacho crujiente","it":"Bowl al pistacchio croccante","fr":"Bol pistache croustillante"},"cena":540}]},{"naziv":{"sr":"Sveže ceđeni sokovi","en":"Fresh Juices","ru":"Свежевыжатые соки","de":"Frisch gepresste Säfte","tr":"Taze Sıkılmış Meyve Suları","zh":"鲜榨果汁","ar":"عصائر طازجة","es":"Zumos naturales","it":"Succhi freschi","fr":"Jus frais"},"stavke":[{"naziv":{"sr":"Ceđena pomorandža","en":"Fresh orange juice","ru":"Апельсиновый фреш","de":"Frisch gepresster Orangensaft","tr":"Taze portakal suyu","zh":"鲜榨橙汁","ar":"عصير برتقال طازج","es":"Zumo de naranja natural","it":"Spremuta d'arancia","fr":"Jus d'orange pressé"},"cena":495},{"naziv":{"sr":"Ceđeni grejp","en":"Fresh grapefruit juice","ru":"Грейпфрутовый фреш","de":"Frisch gepresster Grapefruitsaft","tr":"Taze greyfurt suyu","zh":"鲜榨西柚汁","ar":"عصير جريب فروت طازج","es":"Zumo de pomelo natural","it":"Spremuta di pompelmo","fr":"Jus de pamplemousse pressé"},"cena":495},{"naziv":{"sr":"Citrusni mix","en":"Citrus mix","ru":"Цитрусовый микс","de":"Zitrus-Mix","tr":"Narenciye karışımı","zh":"柑橘混合汁","ar":"خليط الحمضيات","es":"Mezcla de cítricos","it":"Mix di agrumi","fr":"Mélange d'agrumes"},"cena":495},{"naziv":{"sr":"Jabuka, šargarepa, đumbir, limun","en":"Apple, carrot, ginger, lemon","ru":"Яблоко, морковь, имбирь, лимон","de":"Apfel, Karotte, Ingwer, Zitrone","tr":"Elma, havuç, zencefil, limon","zh":"苹果、胡萝卜、姜、柠檬","ar":"تفاح، جزر، زنجبيل، ليمون","es":"Manzana, zanahoria, jengibre, limón","it":"Mela, carota, zenzero, limone","fr":"Pomme, carotte, gingembre, citron"},"cena":495},{"naziv":{"sr":"Šargarepa i pomorandža","en":"Carrot and orange","ru":"Морковь и апельсин","de":"Karotte und Orange","tr":"Havuç ve portakal","zh":"胡萝卜橙汁","ar":"جزر وبرتقال","es":"Zanahoria y naranja","it":"Carota e arancia","fr":"Carotte et orange"},"cena":495}]},{"naziv":{"sr":"Sokovi i voda","en":"Soft Drinks & Water","ru":"Напитки и вода","de":"Getränke & Wasser","tr":"İçecekler ve Su","zh":"饮料和水","ar":"مشروبات ومياه","es":"Refrescos y agua","it":"Bibite e acqua","fr":"Boissons et eau"},"stavke":[{"naziv":{"sr":"Pepsi","en":"Pepsi","ru":"Pepsi","de":"Pepsi","tr":"Pepsi","zh":"Pepsi","ar":"Pepsi","es":"Pepsi","it":"Pepsi","fr":"Pepsi"},"cena":275},{"naziv":{"sr":"Pepsi Max","en":"Pepsi Max","ru":"Pepsi Max","de":"Pepsi Max","tr":"Pepsi Max","zh":"Pepsi Max","ar":"Pepsi Max","es":"Pepsi Max","it":"Pepsi Max","fr":"Pepsi Max"},"cena":275},{"naziv":{"sr":"Pepsi Lemon","en":"Pepsi Lemon","ru":"Pepsi Lemon","de":"Pepsi Lemon","tr":"Pepsi Lemon","zh":"Pepsi Lemon","ar":"Pepsi Lemon","es":"Pepsi Lemon","it":"Pepsi Lemon","fr":"Pepsi Lemon"},"cena":275},{"naziv":{"sr":"Knjaz Miloš gazirana","en":"Knjaz Miloš sparkling","ru":"Knjaz Miloš газированная","de":"Knjaz Miloš mit Kohlensäure","tr":"Knjaz Miloš gazlı","zh":"Knjaz Miloš 气泡水","ar":"Knjaz Miloš فوارة","es":"Knjaz Miloš con gas","it":"Knjaz Miloš frizzante","fr":"Knjaz Miloš gazeuse"},"cena":235},{"naziv":{"sr":"Knjaz Miloš mandarina","en":"Knjaz Miloš mandarin","ru":"Knjaz Miloš мандарин","de":"Knjaz Miloš Mandarine","tr":"Knjaz Miloš mandalina","zh":"Knjaz Miloš 柑橘味","ar":"Knjaz Miloš يوسفي","es":"Knjaz Miloš mandarina","it":"Knjaz Miloš mandarino","fr":"Knjaz Miloš mandarine"},"cena":235}]},{"naziv":{"sr":"Pivo","en":"Beer","ru":"Пиво","de":"Bier","tr":"Bira","zh":"啤酒","ar":"بيرة","es":"Cerveza","it":"Birra","fr":"Bière"},"stavke":[{"naziv":{"sr":"Dogma Hoptopod","en":"Dogma Hoptopod","ru":"Dogma Hoptopod","de":"Dogma Hoptopod","tr":"Dogma Hoptopod","zh":"Dogma Hoptopod","ar":"Dogma Hoptopod","es":"Dogma Hoptopod","it":"Dogma Hoptopod","fr":"Dogma Hoptopod"},"cena":415},{"naziv":{"sr":"Dogma Svetionik","en":"Dogma Svetionik","ru":"Dogma Svetionik","de":"Dogma Svetionik","tr":"Dogma Svetionik","zh":"Dogma Svetionik","ar":"Dogma Svetionik","es":"Dogma Svetionik","it":"Dogma Svetionik","fr":"Dogma Svetionik"},"cena":415},{"naziv":{"sr":"Dogma New Pils on the Block","en":"Dogma New Pils on the Block","ru":"Dogma New Pils on the Block","de":"Dogma New Pils on the Block","tr":"Dogma New Pils on the Block","zh":"Dogma New Pils on the Block","ar":"Dogma New Pils on the Block","es":"Dogma New Pils on the Block","it":"Dogma New Pils on the Block","fr":"Dogma New Pils on the Block"},"cena":415}]}],"slike":[]}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById("podaci").textContent);
+  var K_JEZIK = "meni-jezik", K_TEMA = "meni-tema";
+  var kodovi = D.jezici.map(function (j) { return j.k; });
+  var koren = document.documentElement;
+
+  function citaj(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function pisi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  /* ---------- tema ---------- */
+  var sacuvanaTema = citaj(K_TEMA);
+  if (sacuvanaTema === "light" || sacuvanaTema === "dark") koren.setAttribute("data-tema", sacuvanaTema);
+
+  function tamnaSada() {
+    var t = koren.getAttribute("data-tema");
+    if (t) return t === "dark";
+    if (koren.getAttribute("data-theme") === "dark") return true;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  var dugmeTeme = document.getElementById("prekidac-teme");
+  dugmeTeme.addEventListener("click", function () {
+    var novo = tamnaSada() ? "light" : "dark";
+    koren.setAttribute("data-tema", novo);
+    pisi(K_TEMA, novo);
+    osveziNatpisTeme();
+  });
+
+  /* ---------- jezik ---------- */
+  function pocetniJezik() {
+    var s = citaj(K_JEZIK);
+    if (s && kodovi.indexOf(s) > -1) return s;
+    var lista = navigator.languages || [navigator.language || "sr"];
+    for (var i = 0; i < lista.length; i++) {
+      var k = String(lista[i]).slice(0, 2).toLowerCase();
+      if (kodovi.indexOf(k) > -1) return k;
+    }
+    return "sr";
+  }
+
+  var sel = document.getElementById("izbor-jezika");
+  D.jezici.forEach(function (j) {
+    var o = document.createElement("option");
+    o.value = j.k; o.textContent = j.ime;
+    sel.appendChild(o);
+  });
+
+  var cipovi = document.getElementById("cipovi");
+  var sadrzaj = document.getElementById("sadrzaj");
+  var traka = document.getElementById("traka");
+  var tekuciJezik = "sr";
+
+  function osveziNatpisTeme() {
+    var t = tamnaSada() ? D.ui.tema_svetla : D.ui.tema_tamna;
+    dugmeTeme.setAttribute("aria-label", t[tekuciJezik] || t.sr);
+    dugmeTeme.setAttribute("title", t[tekuciJezik] || t.sr);
+  }
+
+  /* ---------- hero slika ---------- */
+  if (D.slike && D.slike.length) {
+    var img = document.createElement("img");
+    img.className = "hero-slika";
+    img.src = D.slike[0];
+    img.alt = "";
+    var hero = document.getElementById("hero");
+    hero.classList.add("sa-slikom");
+    hero.insertBefore(img, hero.firstChild);
+  }
+
+  function crtaj(k) {
+    var j = D.jezici.filter(function (x) { return x.k === k; })[0] || D.jezici[0];
+    tekuciJezik = k;
+    koren.lang = k;
+    koren.dir = j.dir;
+    sel.value = k;
+
+    document.getElementById("ozn-jezik").textContent = D.ui.jezik[k];
+    document.getElementById("pdv").textContent = D.ui.pdv[k];
+    document.getElementById("izradio").textContent = D.ui.izradio[k];
+    document.getElementById("demo").textContent = D.ui.demo[k];
+    traka.setAttribute("aria-label", D.ui.kategorije[k]);
+    osveziNatpisTeme();
+
+    cipovi.innerHTML = "";
+    sadrzaj.innerHTML = "";
+
+    D.kategorije.forEach(function (kat, i) {
+      var id = "k" + i;
+
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.className = "cip"; a.href = "#" + id;
+      a.textContent = kat.naziv[k];
+      a.addEventListener("click", function () {
+        // Poslednje kategorije ne mogu da dodju do vrha - namera klika pobedjuje poziciju skrola.
+        kljucaj = Date.now() + 800;
+        postavi(id);
+      });
+      li.appendChild(a); cipovi.appendChild(li);
+
+      var sek = document.createElement("section");
+      sek.id = id;
+
+      var zag = document.createElement("div");
+      zag.className = "zaglavlje-kat";
+      // Slicica kategorije samo ako ima dovoljno slika - bez ponavljanja hero slike.
+      if (D.slike && D.slike.length > i + 1) {
+        var mini = document.createElement("img");
+        mini.className = "slicica";
+        mini.src = D.slike[i + 1];
+        mini.alt = "";
+        mini.loading = "lazy";
+        zag.appendChild(mini);
+      }
+      var h2 = document.createElement("h2");
+      h2.textContent = kat.naziv[k];
+      zag.appendChild(h2);
+      sek.appendChild(zag);
+
+      var ul = document.createElement("ul");
+      ul.className = "lista";
+      kat.stavke.forEach(function (st) {
+        var red = document.createElement("li");
+        red.className = "red";
+        var ime = document.createElement("div");
+        ime.className = "ime";
+        var nz = document.createElement("span");
+        nz.className = "naziv-stavke";
+        nz.textContent = st.naziv[k];
+        ime.appendChild(nz);
+        if (st.opis) {
+          var op = document.createElement("span");
+          op.className = "opis";
+          op.textContent = st.opis[k];
+          ime.appendChild(op);
+        }
+        var cn = document.createElement("div");
+        cn.className = "cena";
+        cn.textContent = st.cena;
+        red.appendChild(ime); red.appendChild(cn);
+        ul.appendChild(red);
+      });
+      sek.appendChild(ul);
+      sadrzaj.appendChild(sek);
+    });
+
+    oznaciAktivan();
+  }
+
+  /* ---------- aktivan cip: najgornja vidljiva sekcija, ne poslednja ---------- */
+  var zakazano = false, kljucaj = 0;
+
+  function postavi(id) {
+    [].slice.call(cipovi.querySelectorAll(".cip")).forEach(function (c) {
+      var jeste = c.getAttribute("href") === "#" + id;
+      c.setAttribute("aria-current", jeste ? "true" : "false");
+      if (jeste) uvidik(c);
+    });
+  }
+
+  function oznaciAktivan() {
+    if (Date.now() < kljucaj) return;
+    var sekcije = [].slice.call(sadrzaj.querySelectorAll("section"));
+    if (!sekcije.length) return;
+    // Prag mora da prati scroll-margin-top sekcija, inace aktivan cip kasni za jedan.
+    var prag = traka.getBoundingClientRect().bottom + 24;
+    var izabrana = sekcije[0];
+    for (var i = 0; i < sekcije.length; i++) {
+      if (sekcije[i].getBoundingClientRect().top <= prag) izabrana = sekcije[i];
+    }
+    // Na samom dnu strane poslednja sekcija koja se vidi je ono sto gost zapravo gleda.
+    var dokraja = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (dokraja) {
+      for (var d = sekcije.length - 1; d >= 0; d--) {
+        if (sekcije[d].getBoundingClientRect().top < window.innerHeight - 48) { izabrana = sekcije[d]; break; }
+      }
+    }
+    postavi(izabrana.id);
+  }
+  function uvidik(cip) {
+    var r = cip.getBoundingClientRect(), t = traka.getBoundingClientRect();
+    if (r.left < t.left + 8 || r.right > t.right - 8) {
+      traka.scrollTo({
+        left: traka.scrollLeft + (r.left - t.left) - 16,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+      });
+    }
+  }
+  window.addEventListener("scroll", function () {
+    if (zakazano) return;
+    zakazano = true;
+    requestAnimationFrame(function () { zakazano = false; oznaciAktivan(); });
+  }, { passive: true });
+  window.addEventListener("resize", oznaciAktivan, { passive: true });
+
+  sel.addEventListener("change", function () {
+    pisi(K_JEZIK, sel.value);
+    crtaj(sel.value);
+    sel.blur();
+  });
+
+  crtaj(pocetniJezik());
+})();
+</script>
+</body>
+</html>
