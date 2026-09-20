@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glina i Vatra — keramička radionica, Čačak</title>
+<meta name="description" content="Grnčarija rađena na kolu. Radionica u Čačku — časovi na kolu, izrada po porudžbini.">
+<meta property="og:title" content="Glina i Vatra — keramička radionica, Čačak">
+<meta property="og:description" content="Grnčarija rađena na kolu. Radionica u Čačku — časovi na kolu, izrada po porudžbini.">
+<meta property="og:image" content="hero.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='25' font-size='24'%3E🏺%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#FBF7F0;--ploca:#FFFFFF;--ink:#241C14;--muted:#6B5C4C;--zar:#9C4A1E;
+  --linija:#E7DCCB;--senka:rgba(70,48,28,.12);--g:20px}
+@media (prefers-color-scheme:dark){:root:not([data-tema]){
+  --ground:#17120D;--ploca:#1F1913;--ink:#F3EADC;--muted:#A99881;--zar:#E08A4E;
+  --linija:#332A21;--senka:rgba(0,0,0,.5)}}
+:root[data-tema="dark"]{--ground:#17120D;--ploca:#1F1913;--ink:#F3EADC;--muted:#A99881;
+  --zar:#E08A4E;--linija:#332A21;--senka:rgba(0,0,0,.5)}
+:root[data-tema="light"]{--ground:#FBF7F0;--ploca:#FFFFFF;--ink:#241C14;--muted:#6B5C4C;
+  --zar:#9C4A1E;--linija:#E7DCCB;--senka:rgba(70,48,28,.12)}
+body{font-family:"Source Serif 4",Georgia,serif;font-size:17.5px;line-height:1.62}
+h1,h2,.marka{font-family:"Source Serif 4",Georgia,serif;font-weight:600;letter-spacing:-.012em}
+.marka{font-size:20px}
+.marka b{font-weight:600}.marka i{font-style:italic;color:var(--zar);font-weight:400}
+h1{font-size:clamp(30px,6.4vw,50px);line-height:1.14;margin:0 0 18px}
+h2{font-size:clamp(21px,3.6vw,27px);margin:0 0 4px}
+.oko{font-family:system-ui,sans-serif;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--zar);font-weight:600;margin:0 0 10px}
+.dugme{background:var(--zar);color:#FFF8F0;border-radius:999px;padding:14px 26px}
+:root[data-tema="dark"] .dugme{color:#17120D}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) .dugme{color:#17120D}}
+.plocica{border-radius:4px}
+.cena-red{border-bottom:1px dotted var(--linija)}
+.kartica{border:1px solid var(--linija);border-radius:6px;background:var(--ploca)}
+*{box-sizing:border-box}html,body{margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;
+  transition:background-color .25s,color .25s;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.omot{max-width:1080px;margin:0 auto;padding-inline:var(--g)}
+.usko{max-width:680px;margin-inline:0}
+.vrh{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--ground) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--linija)}
+.vrh .omot{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:60px}
+.marka{text-decoration:none;white-space:nowrap}
+.navi{display:flex;align-items:center;gap:20px;font-size:14px}
+.navi a{color:var(--muted);text-decoration:none}
+.navi a:hover{color:var(--ink)}
+@media (max-width:640px){.navi a{display:none}}
+.tema{width:38px;height:38px;display:grid;place-items:center;cursor:pointer;color:var(--ink);
+  border:1px solid var(--linija);background:var(--ploca);border-radius:8px;flex:0 0 auto;padding:0}
+.tema svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.tema .sunce{display:none}.tema .mesec{display:block}
+:root[data-tema="light"] .tema .sunce{display:block}
+:root[data-tema="light"] .tema .mesec{display:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--zar);outline-offset:3px}
+
+.heroj{position:relative;min-height:clamp(380px,64vh,560px);display:grid;align-items:end;
+  overflow:hidden;isolation:isolate}
+.heroj .pozadina{position:absolute;inset:0;z-index:-2}
+.heroj .pozadina img{width:100%;height:100%;object-fit:cover}
+.heroj::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(8,7,6,.92) 0%,rgba(8,7,6,.74) 34%,rgba(8,7,6,.42) 68%,rgba(8,7,6,.24) 100%)}
+.heroj .omot{padding-block:40px 46px;color:#FFFFFF}
+.heroj h1{color:#FFFFFF;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+.heroj .oko{color:#FFFFFF;opacity:.82}
+.heroj p{color:rgba(255,255,255,.9);max-width:46ch;margin:0 0 24px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.dugme{display:inline-block;text-decoration:none;border:0;cursor:pointer;font-size:15.5px;
+  font-family:inherit;line-height:1.2;transition:transform .15s,filter .15s}
+.dugme:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+section{padding-block:clamp(52px,8vw,84px)}
+.zaglavlje{margin-bottom:28px;max-width:56ch}
+.zaglavlje p{color:var(--muted);margin:8px 0 0}
+
+.mreza3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--g)}
+.mreza3 .plocica{aspect-ratio:4/5}
+.mreza2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--g)}
+.mreza2 .plocica{aspect-ratio:3/4}
+.mreza2 .plocica:first-child{grid-column:span 2;aspect-ratio:16/10}
+.masonry2{columns:2;column-gap:var(--g)}
+.masonry2 .plocica{break-inside:avoid;margin:0 0 var(--g);width:100%}
+@media (max-width:860px){.mreza3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.mreza3,.mreza2{grid-template-columns:1fr}
+  .mreza2 .plocica:first-child{grid-column:auto}.masonry2{columns:1}}
+
+.plocica{position:relative;margin:0;padding:0;overflow:hidden;cursor:zoom-in;display:block;
+  background:var(--ploca);border:0;width:100%;box-shadow:0 1px 3px var(--senka)}
+.plocica img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.masonry2 .plocica img{height:auto}
+.plocica:hover img,.plocica:focus-visible img{transform:scale(1.035)}
+.plocica figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;
+  font-size:12.5px;color:#fff;text-align:left;
+  background:linear-gradient(to top,rgba(0,0,0,.72),transparent);
+  opacity:0;transition:opacity .25s}
+.plocica:hover figcaption,.plocica:focus-visible figcaption{opacity:1}
+@media (hover:none){.plocica figcaption{display:none}}
+
+.prica{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,54px);align-items:center}
+.prica p{color:var(--muted);margin:0 0 14px}
+.prica p:last-child{margin-bottom:0}
+.prica .slika{overflow:hidden;box-shadow:0 2px 10px var(--senka)}
+.prica .slika img{width:100%;aspect-ratio:4/5;object-fit:cover}
+@media (max-width:720px){.prica{grid-template-columns:1fr}.prica .slika{order:-1}}
+
+.cene-lista{margin:0;padding:0;list-style:none}
+.cena-red{display:flex;justify-content:space-between;gap:18px;align-items:baseline;padding:15px 0}
+.cena-red:last-child{border-bottom:0}
+.cena-red .sta{font-weight:600}
+.cena-red .koliko{color:var(--zar);font-weight:700;white-space:nowrap}
+.nota{color:var(--muted);font-size:14.5px;margin:18px 0 0;max-width:56ch}
+
+.kontakt-mreza{display:grid;grid-template-columns:1fr 1fr;gap:var(--g)}
+@media (max-width:720px){.kontakt-mreza{grid-template-columns:1fr}}
+.kartica{padding:24px}
+.kartica h3{margin:0 0 12px;font-size:15px;letter-spacing:.02em}
+.kartica p{margin:0 0 6px;color:var(--muted);font-size:15px}
+.red{display:flex;justify-content:space-between;gap:14px;font-size:15px;padding:5px 0;color:var(--muted)}
+.red b{color:var(--ink);font-weight:600}
+.veza{color:var(--zar);text-decoration:none;font-weight:600}
+.veza:hover{text-decoration:underline}
+
+footer{border-top:1px solid var(--linija);padding-block:28px 40px;color:var(--muted);font-size:14px}
+footer p{margin:0 0 6px}
+footer a{color:var(--zar)}
+.primer{font-size:12.5px;opacity:.8}
+
+#svetlo{position:fixed;inset:0;z-index:90;background:rgba(6,6,7,.94);display:grid;
+  grid-template-rows:auto 1fr auto;padding:12px}
+#svetlo[hidden]{display:none}
+#svetlo .traka{display:flex;justify-content:flex-end}
+#svetlo .okvir{display:grid;place-items:center;min-height:0}
+#svetlo img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 8px 40px rgba(0,0,0,.6)}
+#svetlo .dno{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  color:#E8E6E2;font-size:13.5px;padding:10px 4px 4px}
+#svetlo button{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.22);
+  width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:19px;line-height:1;
+  display:grid;place-items:center;flex:0 0 auto;font-family:inherit}
+#svetlo button:hover{background:rgba(255,255,255,.2)}
+#svetlo .strelice{display:flex;gap:10px}
+#svetlo .natpis{flex:1;min-width:0}
+
+@supports (animation-timeline:view()){
+ @media (prefers-reduced-motion:no-preference) and (min-width:0px){
+  .otkrij{animation:dize both;animation-timeline:view();animation-range:entry 2% cover 26%}
+  @keyframes dize{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  .heroj .pozadina img{animation:diz both;animation-timeline:view();animation-range:exit 0% exit 100%}
+  @keyframes diz{from{transform:scale(1)}to{transform:scale(1.14)}}
+ }
+}
+</style>
+</head>
+<body>
+
+<header class="vrh">
+  <div class="omot">
+    <a class="marka" href="#"><b>Glina</b> <i>i Vatra</i></a>
+    <nav class="navi">
+      <a href="#radovi">Radovi</a>
+      <a href="#o-nama">Radionica</a>
+      <a href="#cene">Cene</a>
+      <a href="#kontakt">Kontakt</a>
+      <button class="tema" type="button" aria-label="Promeni temu"><svg viewBox="0 0 24 24" aria-hidden="true" class="sunce"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 12H2.2M21.8 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M17.7 6.3l1.5-1.5M4.8 19.2l1.5-1.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" class="mesec"><path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.6 8.6 0 1 0 10.9 10.9Z"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<section class="heroj">
+  <div class="pozadina"><img src="hero.jpg" width="1600" height="900" alt="" fetchpriority="high"></div>
+  <div class="omot">
+    <p class="oko">Glina i Vatra · Čačak</p>
+    <h1>Grnčarija rađena na kolu,<br>komad po komad.</h1>
+    <p>Radionica u Čačku. Svaki komad se izvuče rukom, osuši, peče dva puta i glazira. Nema kalupa i nema dve iste stvari.</p>
+    <a class="dugme" href="https://wa.me/381621088760?text=Zdravo%2C%20video%20sam%20sajt%20Glina%20i%20Vatra%20%E2%80%94%20zanima%20me%20izrada%20po%20porudžbini." target="_blank" rel="noopener">Pitaj za komad</a>
+  </div>
+</section>
+
+<section id="radovi">
+  <div class="omot">
+    <div class="zaglavlje otkrij">
+      <p class="oko">Radovi</p>
+      <h2>Ovo je urađeno kod nas.</h2>
+      <p>Klikni na sliku za uvećanje. Strelicama se prolazi kroz galeriju.</p>
+    </div>
+    <div class="masonry2">
+      <figure class="plocica otkrij" tabindex="0" role="button" aria-label="Uvećaj: Ruke oblikuju vrč na grnčarskom kolu">
+        <img src="g1.jpg" width="825" height="1100" alt="Ruke oblikuju vrč na grnčarskom kolu" loading="lazy" decoding="async">
+        <figcaption>Ruke oblikuju vrč na grnčarskom kolu</figcaption>
+      </figure>
+      <figure class="plocica otkrij" tabindex="0" role="button" aria-label="Uvećaj: Police sa osušenim posuđem pre pečenja">
+        <img src="g2.jpg" width="1100" height="733" alt="Police sa osušenim posuđem pre pečenja" loading="lazy" decoding="async">
+        <figcaption>Police sa osušenim posuđem pre pečenja</figcaption>
+      </figure>
+      <figure class="plocica otkrij" tabindex="0" role="button" aria-label="Uvećaj: Zid posude se izvlači prstima, glina još vlažna">
+        <img src="g3.jpg" width="1100" height="733" alt="Zid posude se izvlači prstima, glina još vlažna" loading="lazy" decoding="async">
+        <figcaption>Zid posude se izvlači prstima, glina još vlažna</figcaption>
+      </figure>
+      <figure class="plocica otkrij" tabindex="0" role="button" aria-label="Uvećaj: Slikanje ornamenta na veliki ćup">
+        <img src="g4.jpg" width="733" height="1100" alt="Slikanje ornamenta na veliki ćup" loading="lazy" decoding="async">
+        <figcaption>Slikanje ornamenta na veliki ćup</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="o-nama">
+  <div class="omot prica otkrij">
+    <div>
+      <p class="oko">Radionica</p>
+      <h2>Radionica</h2>
+        <p>Radionica radi od 2016. u jednoj prostoriji sa dva kola i jednom peći. Sve što vidite gore prošlo je kroz iste ruke — od grumena gline do glazure.</p>
+        <p>Dođite da probate. Prvi čas je uvek isti: centriranje gline. Retko ko ga savlada iz prve i to je u redu.</p>
+    </div>
+    <div class="slika"><img src="prica.jpg" width="720" height="900" alt="Detalj oslikane posude — lotos u reljefu" loading="lazy"></div>
+  </div>
+</section>
+
+<section id="cene">
+  <div class="omot usko otkrij">
+    <div class="zaglavlje">
+      <p class="oko">Cenovnik</p>
+      <h2>Cene</h2>
+    </div>
+    <ul class="cene-lista">
+        <li class="cena-red"><span class="sta">Čas na kolu (2 h)</span><span class="koliko">1.800 din</span></li>
+        <li class="cena-red"><span class="sta">Radionica za dvoje (2 h)</span><span class="koliko">3.200 din</span></li>
+        <li class="cena-red"><span class="sta">Izrada po porudžbini</span><span class="koliko">od 2.500 din</span></li>
+        <li class="cena-red"><span class="sta">Pečenje vašeg rada</span><span class="koliko">500 din / komad</span></li>
+    </ul>
+    <p class="nota">Glina, alat i pečenje su uračunati u čas. Rad nosite kući kad se ispeče, obično za deset dana.</p>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="omot">
+    <div class="zaglavlje otkrij">
+      <p class="oko">Kontakt</p>
+      <h2>Javi se.</h2>
+    </div>
+    <div class="kontakt-mreza otkrij">
+      <div class="kartica">
+        <h3>Gde smo</h3>
+        <p>Gradsko šetalište 12, Čačak</p>
+        <p><a class="veza" href="tel:+381621088760">061 208 87 60</a></p>
+        <p style="margin-top:16px"><a class="dugme" href="https://wa.me/381621088760?text=Zdravo%2C%20video%20sam%20sajt%20Glina%20i%20Vatra%20%E2%80%94%20zanima%20me%20izrada%20po%20porudžbini." target="_blank" rel="noopener">Pitaj za komad</a></p>
+      </div>
+      <div class="kartica">
+        <h3>Radno vreme</h3>
+          <div class="red"><span>Utorak – petak</span><b>10 – 19 h</b></div>
+          <div class="red"><span>Subota</span><b>10 – 15 h</b></div>
+          <div class="red"><span>Nedelja i ponedeljak</span><b>zatvoreno</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="omot">
+    <p>Glina i Vatra · Gradsko šetalište 12, Čačak</p>
+    <p class="primer">Primer sajta sa galerijom. Izmišljena firma — izradio <a href="https://instagram.com/sajt_servis.rs" target="_blank" rel="noopener">Sajt Servis</a>.</p>
+  </div>
+</footer>
+
+<div id="svetlo" hidden role="dialog" aria-modal="true" aria-label="Uvećana fotografija">
+  <div class="traka"><button class="zatvori" type="button" aria-label="Zatvori">&times;</button></div>
+  <div class="okvir"><img id="velika" alt=""></div>
+  <div class="dno">
+    <span class="natpis" id="natpis"></span>
+    <span id="brojac"></span>
+    <span class="strelice">
+      <button class="nazad" type="button" aria-label="Prethodna">&#8249;</button>
+      <button class="napred" type="button" aria-label="Sledeća">&#8250;</button>
+    </span>
+  </div>
+</div>
+
+<script>
+(function(){
+ var r=document.documentElement, PODRAZ="light";
+ try{var s=localStorage.getItem("tema-klasican"); if(s==="light"||s==="dark") r.setAttribute("data-tema",s);}catch(e){}
+ function tamna(){var t=r.getAttribute("data-tema"); if(t) return t==="dark";
+   var m=window.matchMedia;
+   if(PODRAZ==="dark") return !(m&&m("(prefers-color-scheme: light)").matches);
+   return !!(m&&m("(prefers-color-scheme: dark)").matches);}
+ var dug=document.querySelector(".tema");
+ function oznaci(){dug.setAttribute("aria-label", tamna()?"Uključi svetlu temu":"Uključi tamnu temu");}
+ oznaci();
+ dug.addEventListener("click",function(){
+   var n=tamna()?"light":"dark";
+   r.setAttribute("data-tema",n);
+   try{localStorage.setItem("tema-klasican",n)}catch(e){}
+   oznaci();
+ });
+
+ var plocice=[].slice.call(document.querySelectorAll(".plocica"));
+ var box=document.getElementById("svetlo"), velika=document.getElementById("velika"),
+     natpis=document.getElementById("natpis"), brojac=document.getElementById("brojac"),
+     i=0, vracaj=null;
+ function prikazi(n){
+   i=(n+plocice.length)%plocice.length;
+   var im=plocice[i].querySelector("img");
+   velika.src=im.getAttribute("src"); velika.alt=im.alt;
+   natpis.textContent=im.alt;
+   brojac.textContent=(i+1)+" / "+plocice.length;
+ }
+ function otvori(n){ vracaj=plocice[n]; prikazi(n); box.hidden=false;
+   document.body.style.overflow="hidden"; box.querySelector(".zatvori").focus(); }
+ function zatvori(){ box.hidden=true; document.body.style.overflow="";
+   if(vracaj) vracaj.focus(); }
+ plocice.forEach(function(p,n){
+   p.addEventListener("click",function(){otvori(n)});
+   p.addEventListener("keydown",function(e){
+     if(e.key==="Enter"||e.key===" "||e.key==="Spacebar"){e.preventDefault(); otvori(n);}
+   });
+ });
+ box.querySelector(".zatvori").addEventListener("click",zatvori);
+ box.querySelector(".nazad").addEventListener("click",function(){prikazi(i-1)});
+ box.querySelector(".napred").addEventListener("click",function(){prikazi(i+1)});
+ box.addEventListener("click",function(e){ if(e.target===box||e.target.classList.contains("okvir")) zatvori(); });
+ document.addEventListener("keydown",function(e){
+   if(box.hidden) return;
+   if(e.key==="Escape") zatvori();
+   else if(e.key==="ArrowLeft") prikazi(i-1);
+   else if(e.key==="ArrowRight") prikazi(i+1);
+   else if(e.key==="Tab"){
+     var f=box.querySelectorAll("button");
+     var prvi=f[0], zadnji=f[f.length-1];
+     if(e.shiftKey && document.activeElement===prvi){e.preventDefault(); zadnji.focus();}
+     else if(!e.shiftKey && document.activeElement===zadnji){e.preventDefault(); prvi.focus();}
+   }
+ });
+ var poc=null;
+ box.addEventListener("touchstart",function(e){poc=e.touches[0].clientX},{passive:true});
+ box.addEventListener("touchend",function(e){
+   if(poc===null) return; var d=e.changedTouches[0].clientX-poc; poc=null;
+   if(Math.abs(d)>50) prikazi(d>0?i-1:i+1);
+ },{passive:true});
+})();
+</script>
+</body>
+</html>
