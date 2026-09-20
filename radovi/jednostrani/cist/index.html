@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prizma — knjigovodstvena agencija</title>
+<meta name="description" content="Knjigovodstvo za male firme i preduzetnike. Paušal, PDV, obračun zarada.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1116" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#FFFFFF; --slab:#F4F6F8; --ink:#0E1116; --muted:#5B6672;
+  --plava:#1F5FD0; --linija:#E4E8EC; --senka:rgba(14,17,22,.06); --g:22px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-tema]){
+  --ground:#0E1116; --slab:#161B22; --ink:#EDF1F5; --muted:#97A3AF;
+  --plava:#79A8FF; --linija:#232A33; --senka:rgba(0,0,0,.5);
+}}
+:root[data-tema="dark"]{
+  --ground:#0E1116; --slab:#161B22; --ink:#EDF1F5; --muted:#97A3AF;
+  --plava:#79A8FF; --linija:#232A33; --senka:rgba(0,0,0,.5);
+}
+:root[data-tema="light"]{
+  --ground:#FFFFFF; --slab:#F4F6F8; --ink:#0E1116; --muted:#5B6672;
+  --plava:#1F5FD0; --linija:#E4E8EC; --senka:rgba(14,17,22,.06);
+}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font-family:Manrope,"Segoe UI",system-ui,sans-serif;
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
+.omot{max-width:700px;margin:0 auto;padding-inline:var(--g)}
+
+.vrh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.marka{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.marka svg{width:22px;height:22px;stroke:var(--plava);fill:none;stroke-width:2}
+.tema{width:40px;height:40px;display:grid;place-items:center;cursor:pointer;color:var(--ink);
+  border:1px solid var(--linija);background:var(--ground);border-radius:10px;flex:0 0 auto}
+.tema svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.tema .mesec{display:none}
+:root[data-tema="dark"] .tema .sunce{display:none}
+:root[data-tema="dark"] .tema .mesec{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) .tema .sunce{display:none}
+  :root:not([data-tema]) .tema .mesec{display:block}}
+.tema:focus-visible,a:focus-visible{outline:2px solid var(--plava);outline-offset:3px}
+
+.uvod{padding-block:42px 44px}
+h1{margin:0;font-size:clamp(33px,8.6vw,54px);font-weight:800;line-height:1.06;letter-spacing:-.035em;text-wrap:balance}
+.podnas{margin:18px 0 0;font-size:18px;color:var(--muted);max-width:40ch}
+.poziv{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.dugme{display:inline-block;text-decoration:none;font-size:15.5px;font-weight:600;padding:13px 22px;border-radius:10px;
+  background:var(--plava);color:var(--ground);border:1px solid var(--plava)}
+.dugme.prazno{background:transparent;color:var(--ink);border-color:var(--linija)}
+
+section{padding-block:38px;border-top:1px solid var(--linija)}
+h2{margin:0 0 20px;font-size:11px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
+
+.paketi{display:grid;gap:11px}
+.paket{border:1px solid var(--linija);border-radius:14px;padding:19px 20px;background:var(--ground)}
+.paket.istaknut{border-color:var(--plava);box-shadow:0 0 0 1px var(--plava)}
+.paket-vrh{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.paket b{font-size:17.5px;font-weight:700}
+.paket .cena{font-size:17.5px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+.paket .cena small{font-weight:500;color:var(--muted);font-size:13px}
+.paket ul{list-style:none;margin:13px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.paket li{display:flex;gap:9px;font-size:14.5px;color:var(--muted)}
+.paket li svg{flex:0 0 auto;width:15px;height:15px;stroke:var(--plava);fill:none;stroke-width:2.4;margin-top:4px}
+.oznaka{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--plava);margin-bottom:7px}
+
+.koraci{list-style:none;margin:0;padding:0;counter-reset:k;display:grid;gap:18px}
+.koraci li{counter-increment:k;display:flex;gap:15px}
+.koraci li::before{content:counter(k,decimal-leading-zero);flex:0 0 auto;font-size:12.5px;font-weight:800;
+  color:var(--plava);width:28px;padding-top:3px;font-variant-numeric:tabular-nums}
+.koraci b{display:block;font-size:16.5px;font-weight:700}
+.koraci span{display:block;font-size:14.5px;color:var(--muted);margin-top:2px}
+
+.kontakt{background:var(--slab);border-radius:14px;padding:22px 20px;display:grid;gap:16px}
+@media (min-width:540px){.kontakt{grid-template-columns:1fr 1fr}}
+.kontakt dt{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.kontakt dd{margin:4px 0 0;font-size:16px;font-weight:600}
+.kontakt dd a{color:var(--ink)}
+
+footer{padding-block:26px 44px;border-top:1px solid var(--linija);font-size:13px;color:var(--muted)}
+footer a{color:var(--plava)}
+.primer{margin-top:9px;font-size:12px;opacity:.85}
+</style>
+</head>
+<body>
+<div class="omot">
+  <header class="vrh">
+    <div class="marka">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 19H3z"/></svg>Prizma
+    </div>
+    <button class="tema" id="tema" type="button" aria-label="Promeni temu" title="Promeni temu">
+      <svg class="sunce" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2M12 19.2v2M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M2.8 12h2M19.2 12h2M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5"/></svg>
+      <svg class="mesec" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
+    </button>
+  </header>
+
+  <div class="uvod">
+    <h1>Knjigovodstvo bez zvanja na kraju meseca.</h1>
+    <p class="podnas">Vodimo knjige preduzetnicima i malim firmama. Papire šaljete kako vam odgovara — slikom, mejlom ili donesete.</p>
+    <div class="poziv">
+      <a class="dugme" href="mailto:kancelarija@prizma-knjigovodstvo.rs">Traži ponudu</a>
+      <a class="dugme prazno" href="#paketi">Cene</a>
+    </div>
+  </div>
+
+  <section id="paketi">
+    <h2>Paketi</h2>
+    <div class="paketi">
+      <div class="paket">
+        <div class="paket-vrh"><b>Paušalac</b><span class="cena">4.500 <small>din/mes</small></span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>KPO knjiga i godišnja prijava</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Praćenje limita od 6 miliona</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Podsetnik pre svakog roka</li>
+        </ul>
+      </div>
+      <div class="paket istaknut">
+        <span class="oznaka">Najčešći izbor</span>
+        <div class="paket-vrh"><b>Firma bez PDV-a</b><span class="cena">9.900 <small>din/mes</small></span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Kompletno knjiženje</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Obračun zarada do 3 zaposlena</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Završni račun uključen</li>
+        </ul>
+      </div>
+      <div class="paket">
+        <div class="paket-vrh"><b>Firma u PDV-u</b><span class="cena">od 16.000 <small>din/mes</small></span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Mesečne PDV prijave</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Zarade bez ograničenja broja</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Cena po obimu dokumentacije</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Kako počinjemo</h2>
+    <ol class="koraci">
+      <li><div><b>Kratak razgovor</b><span>Petnaest minuta, telefonom. Kažete čime se bavite i koliko dokumenata mesečno ide kroz firmu.</span></div></li>
+      <li><div><b>Ponuda u roku od dana</b><span>Fiksna mesečna cena, bez stavki koje iskrsnu kasnije.</span></div></li>
+      <li><div><b>Preuzimanje knjiga</b><span>Ako već imate knjigovođu, mi tražimo dokumentaciju i preuzimamo. Vi ne zovete nikoga.</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Kontakt</h2>
+    <dl class="kontakt">
+      <div><dt>Telefon</dt><dd><a href="tel:+381214725580">021 472 5580</a></dd></div>
+      <div><dt>Mejl</dt><dd><a href="mailto:kancelarija@prizma-knjigovodstvo.rs">kancelarija@prizma-knjigovodstvo.rs</a></dd></div>
+      <div><dt>Kancelarija</dt><dd>Bulevar oslobođenja 102, Novi Sad</dd></div>
+      <div><dt>Radno vreme</dt><dd>Ponedeljak – petak, 08–16h</dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p>Prizma knjigovodstvena agencija · Novi Sad</p>
+    <p class="primer">Primer jednostranog sajta. Izmišljena firma — izradio <a href="https://instagram.com/sajt_servis.rs">Sajt Servis</a>.</p>
+  </footer>
+</div>
+<script>
+(function(){
+  var k="tema-cist",r=document.documentElement,s=null;
+  try{s=localStorage.getItem(k)}catch(e){}
+  if(s==="light"||s==="dark")r.setAttribute("data-tema",s);
+  function tamna(){var t=r.getAttribute("data-tema");
+    if(t)return t==="dark";
+    return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches}
+  document.getElementById("tema").addEventListener("click",function(){
+    var n=tamna()?"light":"dark";r.setAttribute("data-tema",n);
+    try{localStorage.setItem(k,n)}catch(e){}});
+})();
+</script>
+</body>
+</html>
