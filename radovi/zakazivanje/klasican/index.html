@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Salon Verena — frizerski salon, Zemun</title>
+<meta name="description" content="Frizerski salon u Zemunu — šišanje, farbanje, svečane frizure. Zakazivanje online, bez poziva.">
+<meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151210" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#FAF7F2; --ink:#1E1A17; --muted:#6A625B; --raise:#FFFFFF;
+  --slez:#7C4A52; --zlato:#A8823C; --linija:#E7DFD5; --senka:rgba(30,26,23,.07);
+  --polje:#F3EDE5; --g:22px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-tema]){
+  --ground:#151210; --ink:#F0EAE2; --muted:#A79C90; --raise:#1E1A17;
+  --slez:#D79AA3; --zlato:#D9B266; --linija:#2C2622; --senka:rgba(0,0,0,.45); --polje:#231E1A;
+}}
+:root[data-tema="dark"]{--ground:#151210;--ink:#F0EAE2;--muted:#A79C90;--raise:#1E1A17;
+  --slez:#D79AA3;--zlato:#D9B266;--linija:#2C2622;--senka:rgba(0,0,0,.45);--polje:#231E1A}
+:root[data-tema="light"]{--ground:#FAF7F2;--ink:#1E1A17;--muted:#6A625B;--raise:#FFFFFF;
+  --slez:#7C4A52;--zlato:#A8823C;--linija:#E7DFD5;--senka:rgba(30,26,23,.07);--polje:#F3EDE5}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
+.omot{max-width:660px;margin:0 auto;padding-inline:var(--g)}
+h1,h2,.cifra{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600}
+
+.vrh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.marka{font-family:"Cormorant Garamond",Georgia,serif;font-size:21px;font-weight:600;letter-spacing:.02em}
+.marka span{display:block;font-family:Inter,sans-serif;font-size:10px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.tema{width:40px;height:40px;display:grid;place-items:center;cursor:pointer;color:var(--ink);
+  border:1px solid var(--linija);background:var(--raise);border-radius:50%;flex:0 0 auto}
+.tema svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round}
+.tema .mesec{display:none}
+:root[data-tema="dark"] .tema .sunce{display:none}
+:root[data-tema="dark"] .tema .mesec{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) .tema .sunce{display:none}
+  :root:not([data-tema]) .tema .mesec{display:block}}
+.tema:focus-visible,a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--zlato);outline-offset:3px}
+
+.uvod{padding-block:34px 6px}
+h1{margin:0;font-size:clamp(34px,8.8vw,52px);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--slez)}
+.podnas{margin:16px 0 0;font-size:17px;color:var(--muted);max-width:40ch}
+.crta{width:54px;height:1.5px;background:var(--zlato);margin-top:24px}
+
+section{padding-block:40px}
+section+section{border-top:1px solid var(--linija)}
+h2{margin:0 0 4px;font-size:27px;letter-spacing:-.01em}
+.nadred{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--zlato);margin-bottom:9px}
+
+.usluge{list-style:none;margin:20px 0 0;padding:0}
+.usluge li{display:flex;justify-content:space-between;align-items:baseline;gap:18px;
+  padding-block:14px;border-bottom:1px solid var(--linija)}
+.usluge li:last-child{border-bottom:none}
+.usluge .ime{font-size:16.5px}
+.usluge .ime small{display:block;font-size:13.5px;color:var(--muted);margin-top:2px}
+.usluge .cena{font-family:"Cormorant Garamond",serif;font-size:19px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---- zakazivanje ---- */
+.zak{background:var(--raise);border:1px solid var(--linija);border-radius:14px;
+  padding:22px 20px;box-shadow:0 1px 3px var(--senka);margin-top:22px}
+.korak{margin-bottom:20px}
+.korak:last-of-type{margin-bottom:0}
+.oznaka{display:block;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:9px}
+select{width:100%;appearance:none;background:var(--polje);border:1px solid var(--linija);border-radius:9px;
+  color:var(--ink);font:inherit;font-size:15.5px;padding:12px 38px 12px 13px;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.niz{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.niz::-webkit-scrollbar{display:none}
+.dan,.sat{flex:0 0 auto;appearance:none;cursor:pointer;font:inherit;
+  border:1px solid var(--linija);background:var(--polje);color:var(--ink);border-radius:9px}
+.dan{min-width:62px;padding:9px 6px;text-align:center;line-height:1.25}
+.dan b{display:block;font-size:17px;font-variant-numeric:tabular-nums}
+.dan span{display:block;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.dan[aria-pressed="true"],.sat[aria-pressed="true"]{background:var(--slez);border-color:var(--slez);color:#FFF}
+:root[data-tema="dark"] .dan[aria-pressed="true"],:root[data-tema="dark"] .sat[aria-pressed="true"]{color:#151210}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) .dan[aria-pressed="true"],
+  :root:not([data-tema]) .sat[aria-pressed="true"]{color:#151210}}
+.dan[aria-pressed="true"] span{color:inherit;opacity:.8}
+.satovi{display:flex;flex-wrap:wrap;gap:7px}
+.sat{padding:9px 14px;font-size:14.5px;font-variant-numeric:tabular-nums}
+.zatvoreno{font-size:14px;color:var(--muted);font-style:italic}
+.sazetak{margin-top:18px;padding-top:16px;border-top:1px dashed var(--linija);font-size:15px}
+.sazetak b{font-weight:600}
+.potvrdi{width:100%;margin-top:14px;appearance:none;cursor:pointer;font:inherit;font-size:15px;font-weight:600;
+  padding:14px;border-radius:9px;border:1px solid var(--slez);background:var(--slez);color:#FFF}
+:root[data-tema="dark"] .potvrdi{color:#151210}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) .potvrdi{color:#151210}}
+.potvrdi[disabled]{opacity:.42;cursor:not-allowed}
+.sitno{margin:10px 0 0;font-size:12.5px;color:var(--muted);text-align:center}
+
+.podaci{display:grid;gap:0;margin-top:20px;border:1px solid var(--linija);border-radius:12px;overflow:hidden}
+.polje-red{padding:14px 17px;border-bottom:1px solid var(--linija);background:var(--raise)}
+.polje-red:last-child{border-bottom:none}
+.polje-red dt{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.polje-red dd{margin:4px 0 0;font-size:16px}
+.polje-red dd a{color:var(--ink)}
+.sati{display:flex;justify-content:space-between;gap:14px;font-size:15px}
+.sati span:last-child{font-variant-numeric:tabular-nums;color:var(--muted)}
+
+footer{padding-block:26px 46px;border-top:1px solid var(--linija);font-size:13px;color:var(--muted)}
+footer a{color:var(--zlato)}
+.primer{margin-top:8px;font-size:12px;opacity:.85}
+</style>
+</head>
+<body>
+<div class="omot">
+  <header class="vrh">
+    <div class="marka">Salon Verena<span>Frizerski salon · Zemun</span></div>
+    <button class="tema" id="tema" type="button" aria-label="Promeni temu" title="Promeni temu">
+      <svg class="sunce" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2M12 19.2v2M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M2.8 12h2M19.2 12h2M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5"/></svg>
+      <svg class="mesec" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
+    </button>
+  </header>
+
+  <div class="uvod">
+    <h1>Termin birate sami, <em>bez zvanja</em>.</h1>
+    <p class="podnas">Šišanje, farbanje i svečane frizure. Izaberite uslugu i vreme — potvrda stiže odmah.</p>
+    <div class="crta"></div>
+  </div>
+
+  <section id="zakazivanje">
+    <p class="nadred">Zakazivanje</p>
+    <h2>Izaberite termin</h2>
+    <div class="zak">
+      <div class="korak">
+        <label class="oznaka" for="usluga">Usluga</label>
+        <select id="usluga"></select>
+      </div>
+      <div class="korak">
+        <span class="oznaka" id="ozn-dan">Dan</span>
+        <div class="niz" id="dani" role="group" aria-labelledby="ozn-dan"></div>
+      </div>
+      <div class="korak">
+        <span class="oznaka" id="ozn-sat">Vreme</span>
+        <div class="satovi" id="satovi" role="group" aria-labelledby="ozn-sat"></div>
+      </div>
+      <div class="sazetak" id="sazetak">Izaberite uslugu, dan i vreme.</div>
+      <button class="potvrdi" id="potvrdi" type="button" disabled>Potvrdite termin</button>
+      <p class="sitno">Otvara se WhatsApp sa vašim terminom. Salon potvrđuje u roku od par minuta.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="nadred">Cenovnik</p>
+    <h2>Usluge</h2>
+    <ul class="usluge" id="cenovnik"></ul>
+  </section>
+
+  <section>
+    <p class="nadred">Kontakt</p>
+    <h2>Gde smo</h2>
+    <dl class="podaci">
+      <div class="polje-red"><dt>Adresa</dt><dd>Glavna 34, Zemun</dd></div>
+      <div class="polje-red"><dt>Telefon</dt><dd><a href="tel:+381113077412">011 307 7412</a></dd></div>
+      <div class="polje-red"><dt>Radno vreme</dt><dd id="radno"></dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p>Salon Verena · Glavna 34, Zemun</p>
+    <p class="primer">Primer sajta sa zakazivanjem. Izmišljena firma — izradio <a href="https://instagram.com/sajt_servis.rs">Sajt Servis</a>.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var TEL = "381621088760";   // demo: ide na Sajt Servis
+  var USLUGE = [
+    {n:"Šišanje — kratka kosa", c:"900 din", t:30, o:"Pranje, šišanje i fen"},
+    {n:"Šišanje — duga kosa",   c:"1.300 din", t:60, o:"Pranje, šišanje i fen"},
+    {n:"Farbanje cele dužine",  c:"3.200 din", t:120, o:"Boja, pranje i nega"},
+    {n:"Pramenovi",             c:"4.500 din", t:150, o:"Folija, toniranje, fen"},
+    {n:"Svečana frizura",       c:"2.800 din", t:90, o:"Proba po dogovoru"},
+    {n:"Fen stil",              c:"800 din", t:30, o:"Bez pranja 600 din"}
+  ];
+  // 0 = nedelja … 6 = subota
+  var SATI = {1:[9,19], 2:[9,19], 3:[9,19], 4:[9,20], 5:[9,20], 6:[8,15], 0:null};
+  var DANI_KR = ["ned","pon","uto","sre","čet","pet","sub"];
+  var DANI_PUN = ["Nedelja","Ponedeljak","Utorak","Sreda","Četvrtak","Petak","Subota"];
+  var MES = ["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec"];
+
+  var elU = document.getElementById("usluga"),
+      elD = document.getElementById("dani"),
+      elS = document.getElementById("satovi"),
+      elZ = document.getElementById("sazetak"),
+      elP = document.getElementById("potvrdi");
+  var izbor = {u:0, d:null, s:null};
+
+  USLUGE.forEach(function(x,i){
+    var o=document.createElement("option"); o.value=i; o.textContent=x.n+" — "+x.c; elU.appendChild(o);
+    var li=document.createElement("li");
+    li.innerHTML='<span class="ime">'+x.n+'<small>'+x.o+' · '+x.t+' min</small></span><span class="cena">'+x.c+'</span>';
+    document.getElementById("cenovnik").appendChild(li);
+  });
+
+  var radno=document.getElementById("radno");
+  [[1,5],[6,6],[0,0]].forEach(function(par){
+    var a=SATI[par[0]];
+    var ime = par[0]===0 ? "Nedelja" : (par[0]===6 ? "Subota" : "Ponedeljak – petak");
+    var v = a ? (a[0]+"–"+a[1]+"h") : "zatvoreno";
+    if(par[0]===1) v = "9–19h (čet i pet do 20h)";
+    var d=document.createElement("div"); d.className="sati";
+    d.innerHTML="<span>"+ime+"</span><span>"+v+"</span>"; radno.appendChild(d);
+  });
+
+  function datum(p){ var d=new Date(); d.setDate(d.getDate()+p); d.setHours(0,0,0,0); return d; }
+
+  for(var i=0;i<14;i++){
+    (function(p){
+      var d=datum(p);
+      if(!SATI[d.getDay()]) return;                 // zatvoreno tog dana
+      var b=document.createElement("button");
+      b.type="button"; b.className="dan"; b.setAttribute("aria-pressed","false");
+      b.innerHTML="<b>"+d.getDate()+"</b><span>"+DANI_KR[d.getDay()]+"</span>";
+      b.setAttribute("aria-label", DANI_PUN[d.getDay()]+", "+d.getDate()+". "+MES[d.getMonth()]);
+      b.addEventListener("click", function(){
+        izbor.d=d; izbor.s=null;
+        [].forEach.call(elD.children,function(x){x.setAttribute("aria-pressed", x===b ? "true":"false");});
+        crtajSate(); osvezi();
+      });
+      elD.appendChild(b);
+    })(i);
+  }
+
+  function crtajSate(){
+    elS.innerHTML="";
+    if(!izbor.d){ elS.innerHTML='<span class="zatvoreno">Prvo izaberite dan.</span>'; return; }
+    var op=SATI[izbor.d.getDay()], sada=new Date(), danas = izbor.d.getTime()===datum(0).getTime();
+    var korak = USLUGE[izbor.u].t >= 90 ? 60 : 30, ima=false;
+    for(var m=op[0]*60; m+USLUGE[izbor.u].t <= op[1]*60; m+=korak){
+      if(danas && m <= sada.getHours()*60 + sada.getMinutes() + 45) continue;
+      ima=true;
+      (function(min){
+        var t=String(Math.floor(min/60)).padStart(2,"0")+":"+String(min%60).padStart(2,"0");
+        var b=document.createElement("button");
+        b.type="button"; b.className="sat"; b.textContent=t; b.setAttribute("aria-pressed","false");
+        b.addEventListener("click", function(){
+          izbor.s=t;
+          [].forEach.call(elS.children,function(x){ if(x.setAttribute) x.setAttribute("aria-pressed", x===b?"true":"false");});
+          osvezi();
+        });
+        elS.appendChild(b);
+      })(m);
+    }
+    if(!ima) elS.innerHTML='<span class="zatvoreno">Za danas nema slobodnog termina — izaberite sledeći dan.</span>';
+  }
+
+  function tekstDatuma(d){ return DANI_PUN[d.getDay()]+", "+d.getDate()+". "+MES[d.getMonth()]; }
+
+  function osvezi(){
+    var u=USLUGE[izbor.u];
+    if(izbor.d && izbor.s){
+      elZ.innerHTML="<b>"+u.n+"</b> · "+tekstDatuma(izbor.d)+" u "+izbor.s+"<br>"+u.c+" · traje "+u.t+" min";
+      elP.disabled=false;
+    } else {
+      elZ.textContent = izbor.d ? "Izaberite vreme." : "Izaberite uslugu, dan i vreme.";
+      elP.disabled=true;
+    }
+  }
+
+  elU.addEventListener("change", function(){ izbor.u=+elU.value; izbor.s=null; crtajSate(); osvezi(); });
+  elP.addEventListener("click", function(){
+    if(elP.disabled) return;
+    var u=USLUGE[izbor.u];
+    var t=["Zakazivanje termina — Salon Verena","Usluga: "+u.n,"Datum: "+tekstDatuma(izbor.d),"Vreme: "+izbor.s,"Cena: "+u.c].join("\n");
+    window.open("https://wa.me/"+TEL+"?text="+encodeURIComponent(t),"_blank","noopener");
+  });
+
+  var k="tema-salon", r=document.documentElement, s=null;
+  try{s=localStorage.getItem(k)}catch(e){}
+  if(s==="light"||s==="dark") r.setAttribute("data-tema",s);
+  function tamna(){var t=r.getAttribute("data-tema");
+    if(t) return t==="dark";
+    return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches}
+  document.getElementById("tema").addEventListener("click",function(){
+    var n=tamna()?"light":"dark"; r.setAttribute("data-tema",n);
+    try{localStorage.setItem(k,n)}catch(e){}});
+
+  crtajSate(); osvezi();
+})();
+</script>
+</body>
+</html>
