@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kovač — auto detailing</title>
+<meta name="description" content="Auto detailing studio — poliranje, keramička zaštita, dubinsko pranje enterijera.">
+<meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F2F0EE" media="(prefers-color-scheme: light)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..800&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+/* Tamna tema je ovde osnova - studio se i gleda uvече. Svetla je uredna alternativa. */
+:root{
+  --ground:#0B0B0C; --ploca:#141416; --ink:#F2EFEA; --muted:#8E8A84;
+  --varnica:#E4682A; --linija:#232326; --traka:rgba(228,104,42,.14); --g:22px;
+}
+@media (prefers-color-scheme:light){:root:not([data-tema]){
+  --ground:#F2F0EE; --ploca:#FFFFFF; --ink:#121214; --muted:#63605C;
+  --varnica:#B34813; --linija:#E1DDD8; --traka:rgba(179,72,19,.1);
+}}
+:root[data-tema="light"]{
+  --ground:#F2F0EE; --ploca:#FFFFFF; --ink:#121214; --muted:#63605C;
+  --varnica:#B34813; --linija:#E1DDD8; --traka:rgba(179,72,19,.1);
+}
+:root[data-tema="dark"]{
+  --ground:#0B0B0C; --ploca:#141416; --ink:#F2EFEA; --muted:#8E8A84;
+  --varnica:#E4682A; --linija:#232326; --traka:rgba(228,104,42,.14);
+}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font-family:Archivo,"Segoe UI",system-ui,sans-serif;
+  font-size:16.5px;line-height:1.58;-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
+.omot{max-width:680px;margin:0 auto;padding-inline:var(--g)}
+.crno{font-family:"Archivo Black",Archivo,Impact,sans-serif;font-weight:400}
+
+.vrh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.marka{font-family:"Archivo Black",Archivo,sans-serif;font-size:19px;letter-spacing:-.02em;text-transform:uppercase}
+.marka i{color:var(--varnica);font-style:normal}
+.tema{width:40px;height:40px;display:grid;place-items:center;cursor:pointer;color:var(--ink);
+  border:1px solid var(--linija);background:var(--ploca);border-radius:8px;flex:0 0 auto}
+.tema svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.tema .sunce{display:none}
+:root[data-tema="light"] .tema .sunce{display:block}
+:root[data-tema="light"] .tema .mesec{display:none}
+@media (prefers-color-scheme:light){:root:not([data-tema]) .tema .sunce{display:block}
+  :root:not([data-tema]) .tema .mesec{display:none}}
+.tema:focus-visible,a:focus-visible{outline:2px solid var(--varnica);outline-offset:3px}
+
+.uvod{padding-block:34px 40px}
+.nadnaslov{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--varnica);background:var(--traka);padding:6px 11px;border-radius:3px}
+h1{margin:16px 0 0;font-family:"Archivo Black",Archivo,sans-serif;font-weight:400;
+  font-size:clamp(36px,10.5vw,64px);line-height:.98;letter-spacing:-.035em;text-transform:uppercase;text-wrap:balance}
+h1 em{font-style:normal;color:var(--varnica)}
+.podnas{margin:18px 0 0;font-size:17px;color:var(--muted);max-width:38ch}
+.poziv{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.dugme{display:inline-block;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;padding:14px 24px;border-radius:4px;background:var(--varnica);color:#0B0B0C;
+  border:2px solid var(--varnica)}
+:root[data-tema="light"] .dugme:not(.prazno){color:#FFF}
+@media (prefers-color-scheme:light){:root:not([data-tema]) .dugme:not(.prazno){color:#FFF}}
+.dugme.prazno{background:transparent;color:var(--ink);border-color:var(--linija)}
+
+section{padding-block:36px;border-top:1px solid var(--linija)}
+h2{margin:0 0 20px;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+.tretmani{display:grid;gap:10px}
+.tretman{background:var(--ploca);border:1px solid var(--linija);border-radius:8px;padding:18px 19px;
+  border-left:3px solid var(--varnica)}
+.tretman-vrh{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.tretman b{font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.01em}
+.tretman .cena{font-family:"Archivo Black",Archivo,sans-serif;font-size:18px;white-space:nowrap;
+  font-variant-numeric:tabular-nums;color:var(--varnica)}
+.tretman p{margin:8px 0 0;font-size:14.5px;color:var(--muted)}
+.tretman .traje{display:inline-block;margin-top:9px;font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);border:1px solid var(--linija);border-radius:99px;padding:3px 9px}
+
+.brojke{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+.brojka{background:var(--ploca);border:1px solid var(--linija);border-radius:8px;padding:16px 14px;text-align:center}
+.brojka b{display:block;font-family:"Archivo Black",Archivo,sans-serif;font-size:clamp(22px,6.5vw,30px);
+  line-height:1;color:var(--varnica);font-variant-numeric:tabular-nums}
+.brojka span{display:block;margin-top:6px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.podaci{display:grid;gap:10px}
+@media (min-width:520px){.podaci{grid-template-columns:1fr 1fr}.podaci .sirok{grid-column:1 / -1}}
+.polje{background:var(--ploca);border:1px solid var(--linija);border-radius:8px;padding:15px 17px}
+.polje dt{font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.polje dd{margin:5px 0 0;font-size:16px;font-weight:600}
+.polje dd a{color:var(--ink)}
+.red-sati{display:flex;justify-content:space-between;gap:14px;font-size:15px;font-weight:500}
+.red-sati span:last-child{font-variant-numeric:tabular-nums;color:var(--muted)}
+
+footer{padding-block:26px 46px;border-top:1px solid var(--linija);font-size:13px;color:var(--muted)}
+footer a{color:var(--varnica)}
+.primer{margin-top:9px;font-size:12px;opacity:.85}
+</style>
+</head>
+<body>
+<div class="omot">
+  <header class="vrh">
+    <div class="marka">KOVA<i>Č</i></div>
+    <button class="tema" id="tema" type="button" aria-label="Promeni temu" title="Promeni temu">
+      <svg class="sunce" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2M12 19.2v2M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M2.8 12h2M19.2 12h2M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5"/></svg>
+      <svg class="mesec" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
+    </button>
+  </header>
+
+  <div class="uvod">
+    <span class="nadnaslov">Auto detailing studio</span>
+    <h1>Lak koji <em>vraća dubinu</em>.</h1>
+    <p class="podnas">Poliranje, keramička zaštita i dubinsko čišćenje enterijera. Jedan auto dnevno — bez reda i bez žurbe.</p>
+    <div class="poziv">
+      <a class="dugme" href="tel:+381631180440">Zakaži termin</a>
+      <a class="dugme prazno" href="#tretmani">Cenovnik</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="brojke">
+      <div class="brojka"><b>1</b><span>auto dnevno</span></div>
+      <div class="brojka"><b>9</b><span>godina rada</span></div>
+      <div class="brojka"><b>5</b><span>god. garancija</span></div>
+    </div>
+  </section>
+
+  <section id="tretmani">
+    <h2>Tretmani</h2>
+    <div class="tretmani">
+      <div class="tretman">
+        <div class="tretman-vrh"><b>Korektivno poliranje</b><span class="cena">24.000</span></div>
+        <p>Dvokoračno poliranje cele karoserije. Skida holograme, tanke ogrebotine i oksidaciju laka.</p>
+        <span class="traje">1 dan</span>
+      </div>
+      <div class="tretman">
+        <div class="tretman-vrh"><b>Keramička zaštita</b><span class="cena">52.000</span></div>
+        <p>Priprema laka, poliranje i nanošenje keramike u dva sloja. Garancija pet godina uz redovno pranje.</p>
+        <span class="traje">2 dana</span>
+      </div>
+      <div class="tretman">
+        <div class="tretman-vrh"><b>Enterijer do kraja</b><span class="cena">14.500</span></div>
+        <p>Vađenje sedišta, ekstrakcija tapacirunga, hemijsko čišćenje plastike i nega kože.</p>
+        <span class="traje">6–8 sati</span>
+      </div>
+      <div class="tretman">
+        <div class="tretman-vrh"><b>Priprema za prodaju</b><span class="cena">31.000</span></div>
+        <p>Enterijer, jednokoračno poliranje, motorni prostor i felne. Auto izgleda kao iz salona na oglasu.</p>
+        <span class="traje">1 dan</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Gde smo</h2>
+    <dl class="podaci">
+      <div class="polje"><dt>Adresa</dt><dd>Vojvode Stepe 344<br>Beograd</dd></div>
+      <div class="polje"><dt>Telefon</dt><dd><a href="tel:+381631180440">063 118 0440</a></dd></div>
+      <div class="polje sirok"><dt>Radno vreme</dt>
+        <dd>
+          <div class="red-sati"><span>Ponedeljak – petak</span><span>08–18h</span></div>
+          <div class="red-sati"><span>Subota</span><span>08–14h</span></div>
+          <div class="red-sati"><span>Nedelja</span><span>zatvoreno</span></div>
+        </dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p>Kovač auto detailing · Vojvode Stepe 344, Beograd</p>
+    <p class="primer">Primer jednostranog sajta. Izmišljena firma — izradio <a href="https://instagram.com/sajt_servis.rs">Sajt Servis</a>.</p>
+  </footer>
+</div>
+<script>
+(function(){
+  var k="tema-tamni",r=document.documentElement,s=null;
+  try{s=localStorage.getItem(k)}catch(e){}
+  if(s==="light"||s==="dark")r.setAttribute("data-tema",s);
+  function svetla(){var t=r.getAttribute("data-tema");
+    if(t)return t==="light";
+    return window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches}
+  document.getElementById("tema").addEventListener("click",function(){
+    var n=svetla()?"dark":"light";r.setAttribute("data-tema",n);
+    try{localStorage.setItem(k,n)}catch(e){}});
+})();
+</script>
+</body>
+</html>
