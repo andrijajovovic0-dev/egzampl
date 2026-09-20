@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ring 11 — boks klub, Beograd</title>
+<meta name="description" content="Boks klub na Dorćolu — grupni treninzi i individualni rad. Termin rezervišete sa telefona.">
+<meta name="theme-color" content="#0A0A0B" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F1EFEC" media="(prefers-color-scheme: light)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..800&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#0A0A0B;--ploca:#131315;--ink:#F1EFEC;--muted:#8B8783;
+  --struja:#D6FF3D;--linija:#222225;--g:22px}
+@media (prefers-color-scheme:light){:root:not([data-tema]){
+  --ground:#F1EFEC;--ploca:#FFFFFF;--ink:#111113;--muted:#5F5C58;
+  --struja:#4B6B00;--linija:#E0DDD8}}
+:root[data-tema="light"]{--ground:#F1EFEC;--ploca:#FFFFFF;--ink:#111113;--muted:#5F5C58;
+  --struja:#4B6B00;--linija:#E0DDD8}
+:root[data-tema="dark"]{--ground:#0A0A0B;--ploca:#131315;--ink:#F1EFEC;--muted:#8B8783;
+  --struja:#D6FF3D;--linija:#222225}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font-family:Archivo,system-ui,sans-serif;
+  font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
+.omot{max-width:660px;margin:0 auto;padding-inline:var(--g)}
+.crno{font-family:"Archivo Black",Archivo,Impact,sans-serif;font-weight:400}
+.vrh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.marka{font-family:"Archivo Black",Archivo,sans-serif;font-size:20px;letter-spacing:-.02em;text-transform:uppercase}
+.marka i{color:var(--struja);font-style:normal}
+.tema{width:40px;height:40px;display:grid;place-items:center;cursor:pointer;color:var(--ink);
+  border:1px solid var(--linija);background:var(--ploca);border-radius:8px;flex:0 0 auto}
+.tema svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.tema .sunce{display:none}
+:root[data-tema="light"] .tema .sunce{display:block}
+:root[data-tema="light"] .tema .mesec{display:none}
+@media (prefers-color-scheme:light){:root:not([data-tema]) .tema .sunce{display:block}
+  :root:not([data-tema]) .tema .mesec{display:none}}
+.tema:focus-visible,a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--struja);outline-offset:3px}
+.uvod{padding-block:30px 6px}
+.nadnaslov{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--ground);background:var(--struja);padding:6px 11px;border-radius:2px}
+h1{margin:16px 0 0;font-family:"Archivo Black",Archivo,sans-serif;font-weight:400;
+  font-size:clamp(36px,11vw,64px);line-height:.96;letter-spacing:-.04em;text-transform:uppercase;text-wrap:balance}
+h1 em{font-style:normal;color:var(--struja)}
+.podnas{margin:18px 0 0;font-size:17px;color:var(--muted);max-width:38ch}
+.brojke{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:26px}
+.brojka{background:var(--ploca);border:1px solid var(--linija);border-radius:8px;padding:15px 12px;text-align:center}
+.brojka b{display:block;font-family:"Archivo Black",Archivo,sans-serif;font-size:clamp(20px,6vw,28px);
+  line-height:1;color:var(--struja);font-variant-numeric:tabular-nums}
+.brojka span{display:block;margin-top:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{padding-block:36px;border-top:1px solid var(--linija);margin-top:32px}
+h2{margin:0 0 4px;font-family:"Archivo Black",Archivo,sans-serif;font-weight:400;font-size:26px;
+  letter-spacing:-.025em;text-transform:uppercase}
+.nadred{font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.usluge{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:9px}
+.usluge li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  background:var(--ploca);border:1px solid var(--linija);border-left:3px solid var(--struja);
+  border-radius:8px;padding:14px 16px}
+.usluge .ime{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.01em}
+.usluge .ime small{display:block;font-size:13.5px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:3px}
+.usluge .cena{font-family:"Archivo Black",Archivo,sans-serif;font-size:17px;white-space:nowrap;
+  color:var(--struja);font-variant-numeric:tabular-nums}
+.zak{background:var(--ploca);border:1px solid var(--linija);border-radius:10px;padding:22px 20px;margin-top:22px}
+.korak{margin-bottom:20px}.korak:last-of-type{margin-bottom:0}
+.oznaka{display:block;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+select{width:100%;appearance:none;background:var(--ground);border:1px solid var(--linija);border-radius:8px;
+  color:var(--ink);font:inherit;font-size:15.5px;padding:12px 38px 12px 13px;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.niz{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.niz::-webkit-scrollbar{display:none}
+.dan,.sat{flex:0 0 auto;appearance:none;cursor:pointer;font:inherit;
+  border:1px solid var(--linija);background:var(--ground);color:var(--ink);border-radius:8px}
+.dan{min-width:62px;padding:9px 6px;text-align:center;line-height:1.25}
+.dan b{display:block;font-size:17px;font-weight:800;font-variant-numeric:tabular-nums}
+.dan span{display:block;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.dan[aria-pressed="true"],.sat[aria-pressed="true"]{background:var(--struja);border-color:var(--struja);color:var(--ground)}
+.dan[aria-pressed="true"] span{color:inherit;opacity:.85}
+.satovi{display:flex;flex-wrap:wrap;gap:7px}
+.sat{padding:9px 14px;font-size:14.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.zatvoreno{font-size:14px;color:var(--muted)}
+.sazetak{margin-top:18px;padding-top:16px;border-top:1px dashed var(--linija);font-size:15px}
+.potvrdi{width:100%;margin-top:14px;appearance:none;cursor:pointer;font:inherit;font-size:14px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;padding:15px;border-radius:6px;
+  border:2px solid var(--struja);background:var(--struja);color:var(--ground)}
+.potvrdi[disabled]{opacity:.38;cursor:not-allowed}
+.sitno{margin:10px 0 0;font-size:12.5px;color:var(--muted);text-align:center}
+.podaci{display:grid;gap:9px;margin-top:20px}
+.polje-red{background:var(--ploca);border:1px solid var(--linija);border-radius:8px;padding:14px 16px}
+.polje-red dt{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.polje-red dd{margin:4px 0 0;font-size:16px;font-weight:600}
+.polje-red dd a{color:var(--ink)}
+.sati{display:flex;justify-content:space-between;gap:14px;font-size:15px;font-weight:500}
+.sati span:last-child{font-variant-numeric:tabular-nums;color:var(--muted)}
+footer{padding-block:26px 46px;border-top:1px solid var(--linija);margin-top:32px;font-size:13px;color:var(--muted)}
+footer a{color:var(--struja)}
+.primer{margin-top:8px;font-size:12px;opacity:.85}
+</style>
+</head>
+<body>
+<div class="omot">
+  <header class="vrh">
+    <div class="marka">RING <i>11</i></div>
+    <button class="tema" id="tema" type="button" aria-label="Promeni temu" title="Promeni temu">
+      <svg class="sunce" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2M12 19.2v2M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M2.8 12h2M19.2 12h2M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5"/></svg>
+      <svg class="mesec" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
+    </button>
+  </header>
+  <div class="uvod">
+    <span class="nadnaslov">Boks klub · Dorćol</span>
+    <h1>Prvi trening <em>je besplatan</em>.</h1>
+    <p class="podnas">Grupni treninzi i individualni rad. Rezervišete mesto sa telefona, bez zvanja i bez članarine unapred.</p>
+    <div class="brojke">
+      <div class="brojka"><b>12</b><span>u grupi</span></div>
+      <div class="brojka"><b>6</b><span>trenera</span></div>
+      <div class="brojka"><b>0</b><span>din prvi put</span></div>
+    </div>
+  </div>
+
+  <section id="zakazivanje" style="border-top:none;margin-top:14px">
+    <p class="nadred">Rezervacija</p>
+    <h2>Izaberi termin</h2>
+    <div class="zak">
+      <div class="korak"><label class="oznaka" for="usluga">Trening</label><select id="usluga"></select></div>
+      <div class="korak"><span class="oznaka" id="ozn-dan">Dan</span><div class="niz" id="dani" role="group" aria-labelledby="ozn-dan"></div></div>
+      <div class="korak"><span class="oznaka" id="ozn-sat">Vreme</span><div class="satovi" id="satovi" role="group" aria-labelledby="ozn-sat"></div></div>
+      <div class="sazetak" id="sazetak">Izaberi trening, dan i vreme.</div>
+      <button class="potvrdi" id="potvrdi" type="button" disabled>Rezerviši mesto</button>
+      <p class="sitno">Otvara se WhatsApp sa tvojom rezervacijom. Trener potvrđuje pre treninga.</p>
+    </div>
+  </section>
+
+  <section><p class="nadred">Cenovnik</p><h2>Treninzi</h2><ul class="usluge" id="cenovnik"></ul></section>
+
+  <section>
+    <p class="nadred">Kontakt</p><h2>Gde smo</h2>
+    <dl class="podaci">
+      <div class="polje-red"><dt>Adresa</dt><dd>Cara Uroša 11, Dorćol</dd></div>
+      <div class="polje-red"><dt>Telefon</dt><dd><a href="tel:+381642207711">064 220 7711</a></dd></div>
+      <div class="polje-red"><dt>Radno vreme</dt><dd id="radno"></dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p>Ring 11 · Cara Uroša 11, Beograd</p>
+    <p class="primer">Primer sajta sa zakazivanjem. Izmišljen klub — izradio <a href="https://instagram.com/sajt_servis.rs">Sajt Servis</a>.</p>
+  </footer>
+</div>
+<script>
+(function(){
+  var TEL="381621088760";
+  var USLUGE=[
+    {n:"Probni trening", c:"besplatno", t:60, o:"Prvi put, oprema se dobija"},
+    {n:"Grupni trening", c:"800 din", t:60, o:"Do 12 ljudi, svi nivoi"},
+    {n:"Individualni rad", c:"2.500 din", t:60, o:"Jedan na jedan sa trenerom"},
+    {n:"Sparing — napredni", c:"1.200 din", t:90, o:"Uz odobrenje trenera"},
+    {n:"Kondicija i snaga", c:"700 din", t:45, o:"Bez rukavica"},
+    {n:"Mesečna članarina", c:"4.500 din", t:60, o:"Neograničeni grupni treninzi"}
+  ];
+  var SATI={1:[7,21],2:[7,21],3:[7,21],4:[7,21],5:[7,20],6:[9,14],0:null};
+  var DK=["ned","pon","uto","sre","čet","pet","sub"], DP=["Nedelja","Ponedeljak","Utorak","Sreda","Četvrtak","Petak","Subota"];
+  var MES=["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec"];
+  var elU=document.getElementById("usluga"),elD=document.getElementById("dani"),elS=document.getElementById("satovi"),
+      elZ=document.getElementById("sazetak"),elP=document.getElementById("potvrdi"),izbor={u:0,d:null,s:null};
+  USLUGE.forEach(function(x,i){
+    var o=document.createElement("option");o.value=i;o.textContent=x.n+" — "+x.c;elU.appendChild(o);
+    var li=document.createElement("li");
+    li.innerHTML='<span class="ime">'+x.n+'<small>'+x.o+' · '+x.t+' min</small></span><span class="cena">'+x.c+'</span>';
+    document.getElementById("cenovnik").appendChild(li);
+  });
+  var radno=document.getElementById("radno");
+  [["Ponedeljak – četvrtak","7–21h"],["Petak","7–20h"],["Subota","9–14h"],["Nedelja","zatvoreno"]].forEach(function(p){
+    var d=document.createElement("div");d.className="sati";d.innerHTML="<span>"+p[0]+"</span><span>"+p[1]+"</span>";radno.appendChild(d);});
+  function datum(p){var d=new Date();d.setDate(d.getDate()+p);d.setHours(0,0,0,0);return d;}
+  for(var i=0;i<14;i++)(function(p){
+    var d=datum(p); if(!SATI[d.getDay()])return;
+    var b=document.createElement("button");b.type="button";b.className="dan";b.setAttribute("aria-pressed","false");
+    b.innerHTML="<b>"+d.getDate()+"</b><span>"+DK[d.getDay()]+"</span>";
+    b.setAttribute("aria-label",DP[d.getDay()]+", "+d.getDate()+". "+MES[d.getMonth()]);
+    b.addEventListener("click",function(){izbor.d=d;izbor.s=null;
+      [].forEach.call(elD.children,function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});crtaj();osvezi();});
+    elD.appendChild(b);})(i);
+  function crtaj(){
+    elS.innerHTML="";
+    if(!izbor.d){elS.innerHTML='<span class="zatvoreno">Prvo izaberi dan.</span>';return;}
+    var op=SATI[izbor.d.getDay()],sada=new Date(),danas=izbor.d.getTime()===datum(0).getTime();
+    var korak=USLUGE[izbor.u].t>=90?60:60,ima=false;
+    for(var m=op[0]*60;m+USLUGE[izbor.u].t<=op[1]*60;m+=korak){
+      if(danas&&m<=sada.getHours()*60+sada.getMinutes()+45)continue;
+      ima=true;(function(min){
+        var t=String(Math.floor(min/60)).padStart(2,"0")+":"+String(min%60).padStart(2,"0");
+        var b=document.createElement("button");b.type="button";b.className="sat";b.textContent=t;b.setAttribute("aria-pressed","false");
+        b.addEventListener("click",function(){izbor.s=t;
+          [].forEach.call(elS.children,function(x){if(x.setAttribute)x.setAttribute("aria-pressed",x===b?"true":"false")});osvezi();});
+        elS.appendChild(b);})(m);
+    }
+    if(!ima)elS.innerHTML='<span class="zatvoreno">Za danas nema mesta — izaberi sledeći dan.</span>';
+  }
+  function td(d){return DP[d.getDay()]+", "+d.getDate()+". "+MES[d.getMonth()];}
+  function osvezi(){var u=USLUGE[izbor.u];
+    if(izbor.d&&izbor.s){elZ.innerHTML="<b>"+u.n+"</b> · "+td(izbor.d)+" u "+izbor.s+"<br>"+u.c+" · traje "+u.t+" min";elP.disabled=false;}
+    else{elZ.textContent=izbor.d?"Izaberi vreme.":"Izaberi trening, dan i vreme.";elP.disabled=true;}}
+  elU.addEventListener("change",function(){izbor.u=+elU.value;izbor.s=null;crtaj();osvezi();});
+  elP.addEventListener("click",function(){if(elP.disabled)return;var u=USLUGE[izbor.u];
+    var t=["Rezervacija — Ring 11","Trening: "+u.n,"Datum: "+td(izbor.d),"Vreme: "+izbor.s,"Cena: "+u.c].join("\n");
+    window.open("https://wa.me/"+TEL+"?text="+encodeURIComponent(t),"_blank","noopener");});
+  var k="tema-ring",r=document.documentElement,s=null;
+  try{s=localStorage.getItem(k)}catch(e){}
+  if(s==="light"||s==="dark")r.setAttribute("data-tema",s);
+  function svetla(){var t=r.getAttribute("data-tema");if(t)return t==="light";
+    return window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches}
+  document.getElementById("tema").addEventListener("click",function(){
+    var n=svetla()?"dark":"light";r.setAttribute("data-tema",n);try{localStorage.setItem(k,n)}catch(e){}});
+  crtaj();osvezi();
+})();
+</script>
+</body>
+</html>
