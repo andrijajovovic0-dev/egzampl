@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ordinacija Pavlović — stomatolog, Novi Sad</title>
+<meta name="description" content="Stomatološka ordinacija u Novom Sadu — pregled, plombe, implanti. Termin zakazujete online.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1117" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#FFFFFF;--slab:#F2F6F8;--ink:#0D1117;--muted:#5A6672;
+  --tirkiz:#0E7C86;--linija:#E2E9ED;--senka:rgba(13,17,23,.06);--g:22px}
+@media (prefers-color-scheme:dark){:root:not([data-tema]){
+  --ground:#0D1117;--slab:#151B23;--ink:#ECF1F5;--muted:#93A1AE;
+  --tirkiz:#5FD3DC;--linija:#212932;--senka:rgba(0,0,0,.5)}}
+:root[data-tema="dark"]{--ground:#0D1117;--slab:#151B23;--ink:#ECF1F5;--muted:#93A1AE;
+  --tirkiz:#5FD3DC;--linija:#212932;--senka:rgba(0,0,0,.5)}
+:root[data-tema="light"]{--ground:#FFFFFF;--slab:#F2F6F8;--ink:#0D1117;--muted:#5A6672;
+  --tirkiz:#0E7C86;--linija:#E2E9ED;--senka:rgba(13,17,23,.06)}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font-family:Manrope,system-ui,sans-serif;
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
+.omot{max-width:680px;margin:0 auto;padding-inline:var(--g)}
+.vrh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.marka{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.marka svg{width:24px;height:24px;stroke:var(--tirkiz);fill:none;stroke-width:1.9}
+.tema{width:40px;height:40px;display:grid;place-items:center;cursor:pointer;color:var(--ink);
+  border:1px solid var(--linija);background:var(--ground);border-radius:10px;flex:0 0 auto}
+.tema svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.tema .mesec{display:none}
+:root[data-tema="dark"] .tema .sunce{display:none}
+:root[data-tema="dark"] .tema .mesec{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-tema]) .tema .sunce{display:none}
+  :root:not([data-tema]) .tema .mesec{display:block}}
+.tema:focus-visible,a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--tirkiz);outline-offset:3px}
+.uvod{padding-block:36px 8px}
+h1{margin:0;font-size:clamp(32px,8.4vw,50px);font-weight:800;line-height:1.07;letter-spacing:-.035em;text-wrap:balance}
+.podnas{margin:17px 0 0;font-size:17.5px;color:var(--muted);max-width:42ch}
+.znacke{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.znacka{font-size:12.5px;font-weight:600;color:var(--tirkiz);background:var(--slab);
+  border-radius:99px;padding:6px 13px}
+section{padding-block:38px;border-top:1px solid var(--linija);margin-top:34px}
+h2{margin:0 0 4px;font-size:25px;font-weight:800;letter-spacing:-.025em}
+.nadred{font-size:11px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.usluge{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:9px}
+.usluge li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  background:var(--slab);border-radius:11px;padding:14px 16px}
+.usluge .ime{font-size:16px;font-weight:600}
+.usluge .ime small{display:block;font-size:13.5px;font-weight:400;color:var(--muted);margin-top:2px}
+.usluge .cena{font-size:16px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+.zak{background:var(--ground);border:1px solid var(--linija);border-radius:14px;
+  padding:22px 20px;box-shadow:0 1px 3px var(--senka);margin-top:22px}
+.korak{margin-bottom:20px}.korak:last-of-type{margin-bottom:0}
+.oznaka{display:block;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+select{width:100%;appearance:none;background:var(--slab);border:1px solid var(--linija);border-radius:10px;
+  color:var(--ink);font:inherit;font-size:15.5px;padding:12px 38px 12px 13px;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.niz{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.niz::-webkit-scrollbar{display:none}
+.dan,.sat{flex:0 0 auto;appearance:none;cursor:pointer;font:inherit;
+  border:1px solid var(--linija);background:var(--slab);color:var(--ink);border-radius:10px}
+.dan{min-width:62px;padding:9px 6px;text-align:center;line-height:1.25}
+.dan b{display:block;font-size:17px;font-weight:800;font-variant-numeric:tabular-nums}
+.dan span{display:block;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.dan[aria-pressed="true"],.sat[aria-pressed="true"]{background:var(--tirkiz);border-color:var(--tirkiz);color:var(--ground)}
+.dan[aria-pressed="true"] span{color:inherit;opacity:.85}
+.satovi{display:flex;flex-wrap:wrap;gap:7px}
+.sat{padding:9px 14px;font-size:14.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.zatvoreno{font-size:14px;color:var(--muted)}
+.sazetak{margin-top:18px;padding-top:16px;border-top:1px dashed var(--linija);font-size:15px}
+.potvrdi{width:100%;margin-top:14px;appearance:none;cursor:pointer;font:inherit;font-size:15px;font-weight:700;
+  padding:14px;border-radius:10px;border:1px solid var(--tirkiz);background:var(--tirkiz);color:var(--ground)}
+.potvrdi[disabled]{opacity:.42;cursor:not-allowed}
+.sitno{margin:10px 0 0;font-size:12.5px;color:var(--muted);text-align:center}
+.podaci{display:grid;gap:9px;margin-top:20px}
+.polje-red{background:var(--slab);border-radius:11px;padding:14px 16px}
+.polje-red dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.polje-red dd{margin:4px 0 0;font-size:16px;font-weight:600}
+.polje-red dd a{color:var(--ink)}
+.sati{display:flex;justify-content:space-between;gap:14px;font-size:15px;font-weight:500}
+.sati span:last-child{font-variant-numeric:tabular-nums;color:var(--muted)}
+footer{padding-block:26px 46px;border-top:1px solid var(--linija);margin-top:34px;font-size:13px;color:var(--muted)}
+footer a{color:var(--tirkiz)}
+.primer{margin-top:8px;font-size:12px;opacity:.85}
+</style>
+</head>
+<body>
+<div class="omot">
+  <header class="vrh">
+    <div class="marka">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5c-1.6-2-6-2.6-7.4.6-1.3 3 .3 7.7 1.8 10.6.9 1.7 2.6 1.5 3.2-.2.5-1.4.9-2.6 2.4-2.6s1.9 1.2 2.4 2.6c.6 1.7 2.3 1.9 3.2.2 1.5-2.9 3.1-7.6 1.8-10.6-1.4-3.2-5.8-2.6-7.4-.6z"/></svg>
+      Ordinacija Pavlović
+    </div>
+    <button class="tema" id="tema" type="button" aria-label="Promeni temu" title="Promeni temu">
+      <svg class="sunce" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2M12 19.2v2M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M2.8 12h2M19.2 12h2M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5"/></svg>
+      <svg class="mesec" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
+    </button>
+  </header>
+  <div class="uvod">
+    <h1>Termin kod zubara bez čekanja na telefonu.</h1>
+    <p class="podnas">Pregled, plombe, protetika i implanti. Vidite slobodne termine i izaberete onaj koji vam odgovara.</p>
+    <div class="znacke">
+      <span class="znacka">Prvi pregled besplatan</span>
+      <span class="znacka">Rad bez bola</span>
+      <span class="znacka">Plaćanje na rate</span>
+    </div>
+  </div>
+
+  <section id="zakazivanje" style="border-top:none;margin-top:14px">
+    <p class="nadred">Zakazivanje</p>
+    <h2>Izaberite termin</h2>
+    <div class="zak">
+      <div class="korak"><label class="oznaka" for="usluga">Intervencija</label><select id="usluga"></select></div>
+      <div class="korak"><span class="oznaka" id="ozn-dan">Dan</span><div class="niz" id="dani" role="group" aria-labelledby="ozn-dan"></div></div>
+      <div class="korak"><span class="oznaka" id="ozn-sat">Vreme</span><div class="satovi" id="satovi" role="group" aria-labelledby="ozn-sat"></div></div>
+      <div class="sazetak" id="sazetak">Izaberite intervenciju, dan i vreme.</div>
+      <button class="potvrdi" id="potvrdi" type="button" disabled>Potvrdite termin</button>
+      <p class="sitno">Otvara se WhatsApp sa vašim terminom. Sestra potvrđuje isti dan.</p>
+    </div>
+  </section>
+
+  <section><p class="nadred">Cenovnik</p><h2>Intervencije</h2><ul class="usluge" id="cenovnik"></ul></section>
+
+  <section>
+    <p class="nadred">Kontakt</p><h2>Gde smo</h2>
+    <dl class="podaci">
+      <div class="polje-red"><dt>Adresa</dt><dd>Bulevar oslobođenja 76, Novi Sad</dd></div>
+      <div class="polje-red"><dt>Telefon</dt><dd><a href="tel:+381216612380">021 661 2380</a></dd></div>
+      <div class="polje-red"><dt>Radno vreme</dt><dd id="radno"></dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <p>Ordinacija Pavlović · Novi Sad</p>
+    <p class="primer">Primer sajta sa zakazivanjem. Izmišljena ordinacija — izradio <a href="https://instagram.com/sajt_servis.rs">Sajt Servis</a>.</p>
+  </footer>
+</div>
+<script>
+(function(){
+  var TEL="381621088760";
+  var USLUGE=[
+    {n:"Pregled i plan terapije", c:"besplatno", t:30, o:"Snimak i procena stanja"},
+    {n:"Uklanjanje kamenca",      c:"3.500 din", t:45, o:"Ultrazvuk i poliranje"},
+    {n:"Bela plomba",             c:"3.800 din", t:45, o:"Kompozitni materijal"},
+    {n:"Vađenje zuba",            c:"3.000 din", t:45, o:"Uz lokalnu anesteziju"},
+    {n:"Endodoncija (kanal)",     c:"7.500 din", t:90, o:"Po kanalu, sa punjenjem"},
+    {n:"Cirkonijumska krunica",   c:"22.000 din",t:90, o:"Dve posete"},
+    {n:"Implant",                 c:"od 45.000 din", t:120, o:"Konsultacija obavezna"}
+  ];
+  var SATI={1:[8,20],2:[8,20],3:[8,20],4:[8,20],5:[8,16],6:[9,13],0:null};
+  var DK=["ned","pon","uto","sre","čet","pet","sub"], DP=["Nedelja","Ponedeljak","Utorak","Sreda","Četvrtak","Petak","Subota"];
+  var MES=["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec"];
+  var elU=document.getElementById("usluga"),elD=document.getElementById("dani"),elS=document.getElementById("satovi"),
+      elZ=document.getElementById("sazetak"),elP=document.getElementById("potvrdi"),izbor={u:0,d:null,s:null};
+  USLUGE.forEach(function(x,i){
+    var o=document.createElement("option");o.value=i;o.textContent=x.n+" — "+x.c;elU.appendChild(o);
+    var li=document.createElement("li");
+    li.innerHTML='<span class="ime">'+x.n+'<small>'+x.o+' · '+x.t+' min</small></span><span class="cena">'+x.c+'</span>';
+    document.getElementById("cenovnik").appendChild(li);
+  });
+  var radno=document.getElementById("radno");
+  [["Ponedeljak – četvrtak","8–20h"],["Petak","8–16h"],["Subota","9–13h"],["Nedelja","zatvoreno"]].forEach(function(p){
+    var d=document.createElement("div");d.className="sati";d.innerHTML="<span>"+p[0]+"</span><span>"+p[1]+"</span>";radno.appendChild(d);});
+  function datum(p){var d=new Date();d.setDate(d.getDate()+p);d.setHours(0,0,0,0);return d;}
+  for(var i=0;i<14;i++)(function(p){
+    var d=datum(p); if(!SATI[d.getDay()])return;
+    var b=document.createElement("button");b.type="button";b.className="dan";b.setAttribute("aria-pressed","false");
+    b.innerHTML="<b>"+d.getDate()+"</b><span>"+DK[d.getDay()]+"</span>";
+    b.setAttribute("aria-label",DP[d.getDay()]+", "+d.getDate()+". "+MES[d.getMonth()]);
+    b.addEventListener("click",function(){izbor.d=d;izbor.s=null;
+      [].forEach.call(elD.children,function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+      crtaj();osvezi();});
+    elD.appendChild(b);})(i);
+  function crtaj(){
+    elS.innerHTML="";
+    if(!izbor.d){elS.innerHTML='<span class="zatvoreno">Prvo izaberite dan.</span>';return;}
+    var op=SATI[izbor.d.getDay()],sada=new Date(),danas=izbor.d.getTime()===datum(0).getTime();
+    var korak=USLUGE[izbor.u].t>=90?60:30,ima=false;
+    for(var m=op[0]*60;m+USLUGE[izbor.u].t<=op[1]*60;m+=korak){
+      if(danas&&m<=sada.getHours()*60+sada.getMinutes()+45)continue;
+      ima=true;(function(min){
+        var t=String(Math.floor(min/60)).padStart(2,"0")+":"+String(min%60).padStart(2,"0");
+        var b=document.createElement("button");b.type="button";b.className="sat";b.textContent=t;b.setAttribute("aria-pressed","false");
+        b.addEventListener("click",function(){izbor.s=t;
+          [].forEach.call(elS.children,function(x){if(x.setAttribute)x.setAttribute("aria-pressed",x===b?"true":"false")});osvezi();});
+        elS.appendChild(b);})(m);
+    }
+    if(!ima)elS.innerHTML='<span class="zatvoreno">Za danas nema slobodnog termina — izaberite sledeći dan.</span>';
+  }
+  function td(d){return DP[d.getDay()]+", "+d.getDate()+". "+MES[d.getMonth()];}
+  function osvezi(){var u=USLUGE[izbor.u];
+    if(izbor.d&&izbor.s){elZ.innerHTML="<b>"+u.n+"</b> · "+td(izbor.d)+" u "+izbor.s+"<br>"+u.c+" · traje "+u.t+" min";elP.disabled=false;}
+    else{elZ.textContent=izbor.d?"Izaberite vreme.":"Izaberite intervenciju, dan i vreme.";elP.disabled=true;}}
+  elU.addEventListener("change",function(){izbor.u=+elU.value;izbor.s=null;crtaj();osvezi();});
+  elP.addEventListener("click",function(){if(elP.disabled)return;var u=USLUGE[izbor.u];
+    var t=["Zakazivanje termina — Ordinacija Pavlović","Intervencija: "+u.n,"Datum: "+td(izbor.d),"Vreme: "+izbor.s,"Cena: "+u.c].join("\n");
+    window.open("https://wa.me/"+TEL+"?text="+encodeURIComponent(t),"_blank","noopener");});
+  var k="tema-ordinacija",r=document.documentElement,s=null;
+  try{s=localStorage.getItem(k)}catch(e){}
+  if(s==="light"||s==="dark")r.setAttribute("data-tema",s);
+  function tamna(){var t=r.getAttribute("data-tema");if(t)return t==="dark";
+    return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches}
+  document.getElementById("tema").addEventListener("click",function(){
+    var n=tamna()?"light":"dark";r.setAttribute("data-tema",n);try{localStorage.setItem(k,n)}catch(e){}});
+  crtaj();osvezi();
+})();
+</script>
+</body>
+</html>
