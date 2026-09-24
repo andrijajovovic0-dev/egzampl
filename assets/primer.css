@@ -1,0 +1,11 @@
+/* Traka "ovo je primer" — ista na svim primerima Sajt Servisa. Sakriva se sa ?ugradjeno=1 (prikaz u telefonu na glavnom sajtu). */
+.primer-traka{position:relative;z-index:90;background:#141414;color:#EDEBE7;font:600 13px/1.35 Manrope,Inter,system-ui,sans-serif;letter-spacing:0;text-transform:none}
+.primer-traka .pt-in{max-width:1240px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px 18px;flex-wrap:wrap}
+.primer-traka .pt-tekst{display:flex;align-items:center;gap:8px;min-width:0}
+.primer-traka .pt-tekst::before{content:"";width:8px;height:8px;border-radius:50%;background:#E85A1E;flex:none}
+.primer-traka .pt-veze{display:flex;gap:6px 16px;flex-wrap:wrap}
+.primer-traka a{color:#fff;text-decoration:none;white-space:nowrap;padding:3px 0}
+.primer-traka a:hover{text-decoration:underline}
+.primer-traka a.pt-cta{color:#FF9A6B}
+@media(max-width:560px){.primer-traka .pt-sakri{display:none}}
+.ugradjeno .primer-traka{display:none}

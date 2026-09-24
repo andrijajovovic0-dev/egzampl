@@ -7,9 +7,9 @@
 <meta name="description" content="Frizerski salon u Zemunu — šišanje, farbanje, svečane frizure. Zakazivanje online, bez poziva.">
 <meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151210" media="(prefers-color-scheme: dark)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- premium-kit -->
+<link rel="stylesheet" href="../../../assets/premium/fonts/fonts.css">
+<link rel="stylesheet" href="../../../assets/premium/premium.css">
 <style>
 :root{
   --ground:#FAF7F2; --ink:#1E1A17; --muted:#6A625B; --raise:#FFFFFF;
@@ -112,7 +112,7 @@ footer a{color:var(--zlato)}
 .primer{margin-top:8px;font-size:12px;opacity:.85}
 </style>
 </head>
-<body>
+<body data-premium="auto">
 <div class="omot">
   <header class="vrh">
     <div class="marka">Salon Verena<span>Frizerski salon · Zemun</span></div>
@@ -289,5 +289,9 @@ footer a{color:var(--zlato)}
   crtajSate(); osvezi();
 })();
 </script>
+<script defer src="../../../assets/premium/vendor/lenis.min.js"></script>
+<script defer src="../../../assets/premium/vendor/gsap.min.js"></script>
+<script defer src="../../../assets/premium/vendor/ScrollTrigger.min.js"></script>
+<script defer src="../../../assets/premium/premium.js"></script>
 </body>
 </html>

@@ -1,0 +1,173 @@
+/* Kadifa — salon lepote (izmišljen). Krem, šljiva, zlatna linija; Cormorant + Inter. */
+:root{--krem:#F7F0EB;--krem2:#EFE3DC;--blush:#E6CFC5;--sljiva:#3B1624;--vino:#6E2340;--zlato:#7F6135;--tekst:#2A1A20;--siv:#6F5A60;--linija:#E0CFC7;
+  --pm-accent:var(--vino);--pm-line:var(--linija)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--krem);overflow-x:clip}
+body{font-variant-numeric:lining-nums;background:var(--krem);color:var(--tekst);font:400 16.5px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+[id]{scroll-margin-top:84px}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--vino);outline-offset:3px}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1;letter-spacing:-0.01em}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--vino)}
+.w{max-width:1220px;margin:0 auto;padding-inline:clamp(18px,4vw,44px)}
+.mala{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--zlato)}
+.mala::before{content:"";width:22px;height:1px;background:currentColor}
+.dugme{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;background:var(--sljiva);color:#fff;
+  font:600 15px/1 Inter,sans-serif;text-decoration:none;border:1.5px solid var(--sljiva);cursor:pointer;transition:background .2s,transform .2s,color .2s}
+.dugme:hover{background:var(--vino);border-color:var(--vino);transform:translateY(-2px)}
+.dugme.obrub{background:transparent;color:var(--sljiva)}
+.dugme.obrub:hover{background:var(--sljiva);color:#fff}
+.dugme:disabled{opacity:.35;cursor:not-allowed;transform:none}
+section{padding-block:clamp(80px,11vw,150px)}
+.sek-h2{font-size:clamp(46px,6.6vw,96px);margin-top:16px}
+.sek-p{margin-top:18px;color:var(--siv);max-width:48ch;font-size:17px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:60;background:rgba(247,240,235,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--linija)}
+.nav .w{display:flex;align-items:center;gap:28px;height:74px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.logo b{font:italic 500 36px/1 'Cormorant Garamond',serif;color:var(--sljiva)}
+.logo small{font:600 10.5px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--zlato)}
+.nav-veze{display:flex;gap:26px;margin-left:auto;font-weight:500;font-size:15px}
+.nav-veze a{text-decoration:none;color:var(--siv)}
+.nav-veze a:hover{color:var(--sljiva)}
+.nav .dugme{min-height:42px;padding:0 20px;font-size:14px}
+@media(max-width:940px){.nav-veze{display:none}.nav .dugme{margin-left:auto}.logo small{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(32px,5vw,72px) clamp(64px,8vw,110px)}
+.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,80px);align-items:center}
+@media(max-width:900px){.hero .w{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(64px,10.5vw,158px);margin-top:18px;line-height:.9}
+.hero h1 em{display:block;padding-left:.5em}
+.hero .uvod{margin-top:26px;max-width:42ch;color:var(--siv);font-size:clamp(17px,1.5vw,19px)}
+.hero .radnje{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.prvi{margin-top:28px;display:inline-flex;align-items:center;gap:12px;padding:12px 18px;border-radius:14px;background:#fff;border:1px solid var(--linija);font-size:14.5px}
+.prvi i{width:9px;height:9px;border-radius:50%;background:#3E9B6A;box-shadow:0 0 0 4px rgba(62,155,106,.15)}
+.prvi b{color:var(--sljiva)}
+.luk{position:relative;max-width:470px;justify-self:end;width:100%}
+@media(max-width:900px){.luk{justify-self:center;max-width:380px}}
+.luk .okvir{aspect-ratio:3/4;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--blush)}
+.luk .okvir img{width:100%;height:118%;object-fit:cover;object-position:40% 30%;margin-top:-9%}
+.luk::before{content:"";position:absolute;inset:-14px -14px auto -14px;aspect-ratio:3/4;border:1px solid var(--zlato);border-radius:999px 999px 24px 24px;pointer-events:none;opacity:.6}
+.luk .kartica{position:absolute;left:-28px;bottom:36px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 24px 40px -22px rgba(59,22,36,.45);font-size:14px;min-width:190px}
+.luk .kartica b{display:block;font:600 22px/1.1 'Cormorant Garamond',serif;color:var(--sljiva)}
+.luk .kartica span{color:var(--siv)}
+@media(max-width:560px){.luk .kartica{left:-6px;bottom:18px}}
+
+/* traka */
+.traka{border-block:1px solid var(--linija);padding:18px 0;font:italic 500 clamp(28px,3.4vw,44px)/1 'Cormorant Garamond',serif;color:var(--sljiva);--pm-gap:2rem;--pm-speed:40s}
+.traka span{display:inline-flex;align-items:center;gap:2rem}
+.traka span::after{content:"✦";font-style:normal;font-size:.5em;color:var(--zlato)}
+
+/* usluge */
+.usluge{margin-top:clamp(36px,5vw,64px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,26px)}
+@media(max-width:960px){.usluge{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.usluge{gap:18px 12px}.usluga h3{font-size:26px;margin-top:12px}.usluga p{font-size:13.5px}.usluga .od{font-size:13.5px}}
+.usluga{text-decoration:none;display:block}
+.usluga .slika{aspect-ratio:4/5;border-radius:999px 999px 14px 14px;overflow:hidden;background:var(--blush)}
+.usluga img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.usluga:hover img{transform:scale(1.06)}
+.usluga h3{margin-top:18px;font-size:34px}
+.usluga p{margin-top:6px;color:var(--siv);font-size:15px}
+.usluga .od{margin-top:10px;font-weight:600;font-size:14.5px;color:var(--vino)}
+
+/* cenovnik */
+.cenovnik-sek{background:var(--sljiva);color:#F6ECE8}
+.cenovnik-sek .mala{color:#D8B98C}
+.cenovnik-sek h2 em{color:#E9B7C5}
+.tabovi{margin-top:36px;display:flex;gap:8px;flex-wrap:wrap}
+.tabovi button{padding:11px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:transparent;cursor:pointer;font-weight:600;font-size:14.5px;color:#F6ECE8}
+.tabovi button[aria-selected="true"]{background:#F6ECE8;color:var(--sljiva);border-color:#F6ECE8}
+.lista{list-style:none;margin-top:26px;max-width:860px}
+[role="tabpanel"][hidden]{display:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.lista li{display:grid;grid-template-columns:1fr auto auto;gap:4px 24px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.lista b{font:500 24px/1.1 'Cormorant Garamond',serif}
+.lista small{grid-column:1;color:#C9B3B9;font-size:14px}
+.lista .c{grid-column:2;grid-row:1/span 2;font:600 22px/1 'Cormorant Garamond',serif;white-space:nowrap}
+.lista button{grid-column:3;grid-row:1/span 2;padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;cursor:pointer;font-size:13.5px;font-weight:600;color:#F6ECE8}
+.lista button:hover{background:#F6ECE8;color:var(--sljiva)}
+@media(max-width:560px){.lista li{grid-template-columns:1fr auto}.lista button{grid-column:1/-1;grid-row:auto;justify-self:start;margin-top:8px}}
+
+/* zakazivanje */
+.zak{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(18px,3vw,36px);margin-top:clamp(36px,5vw,56px);align-items:start}
+@media(max-width:960px){.zak{grid-template-columns:1fr}}
+.zak-panel{background:#fff;border:1px solid var(--linija);border-radius:22px;padding:clamp(20px,3vw,36px)}
+.koraci-z{display:flex;gap:6px;margin-bottom:26px}
+.koraci-z span{flex:1;height:4px;border-radius:4px;background:var(--krem2)}
+.koraci-z span.gotov{background:var(--vino)}
+.korak-z h3{font-size:34px}
+.korak-z .pom{color:var(--siv);font-size:14.5px;margin-top:4px}
+.korak-z+.korak-z{margin-top:34px;padding-top:30px;border-top:1px dashed var(--linija)}
+.korak-z.zaklj h3{color:var(--siv)}
+.korak-z.zaklj .cipovi button,.korak-z.zaklj input,.korak-z.zaklj textarea{cursor:not-allowed}
+.cipovi{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+.cipovi button{padding:11px 16px;border-radius:12px;border:1.5px solid var(--linija);background:var(--krem);cursor:pointer;font-size:14.5px;font-weight:500;text-align:left;transition:border-color .15s,background .15s}
+.cipovi button small{display:block;color:var(--siv);font-size:12.5px;font-weight:400}
+.cipovi button:hover:not(:disabled){border-color:var(--vino)}
+.cipovi button[aria-pressed="true"]{background:var(--sljiva);border-color:var(--sljiva);color:#fff}
+.cipovi button[aria-pressed="true"] small{color:#E7CCD5}
+.cipovi button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.dani{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.dani button{flex:none;width:68px;text-align:center;padding:10px 0}
+.dani button b{display:block;font:600 26px/1 'Cormorant Garamond',serif}
+.dani button small{text-transform:capitalize}
+.satovi button{min-width:78px;text-align:center;font-variant-numeric:tabular-nums}
+.podaci{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.podaci .cela{grid-column:1/-1}
+@media(max-width:560px){.podaci{grid-template-columns:1fr}}
+.podaci label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--siv)}
+.podaci input,.podaci textarea{width:100%;padding:13px 14px;border:1.5px solid var(--linija);border-radius:12px;background:var(--krem);font:inherit;font-size:16px;color:var(--tekst)}
+.podaci input:focus,.podaci textarea:focus{outline:none;border-color:var(--vino)}
+.podaci textarea{min-height:84px;resize:vertical}
+.greska{color:#A02F3A;font-size:14px;margin-top:10px}
+.sazetak{position:sticky;top:100px;background:var(--krem2);border-radius:22px;padding:26px}
+.sazetak h3{font-size:30px}
+.sazetak dl{margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:15px}
+.sazetak dt{color:var(--siv)}
+.sazetak dd{font-weight:600;text-align:right}
+.sazetak .ukupno{margin-top:18px;padding-top:16px;border-top:1px solid var(--linija);display:flex;justify-content:space-between;align-items:baseline}
+.sazetak .ukupno b{font:600 34px/1 'Cormorant Garamond',serif;color:var(--sljiva)}
+.sazetak .dugme{width:100%;margin-top:18px}
+.sazetak .sitno{margin-top:12px;font-size:13px;color:var(--siv)}
+@media(max-width:960px){.sazetak{position:static}}
+.potvrda{text-align:center;padding:clamp(24px,4vw,48px) 10px}
+.potvrda .znak{width:74px;height:74px;border-radius:50%;background:var(--sljiva);color:#fff;display:grid;place-items:center;margin:0 auto}
+.potvrda .znak svg{width:34px;height:34px}
+.potvrda h3{margin-top:18px;font-size:44px}
+.potvrda p{margin:10px auto 0;color:var(--siv);max-width:44ch}
+.potvrda .radnje{margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.potvrda .napomena{margin-top:22px;font-size:13.5px;padding:12px 16px;border-radius:12px;background:var(--krem);display:inline-block}
+
+/* galerija */
+.galerija{margin-top:clamp(36px,5vw,56px);columns:4 220px;column-gap:14px}
+@media(max-width:600px){.galerija{columns:2;column-gap:10px}.galerija figure{margin-bottom:10px}}
+.galerija figure{break-inside:avoid;margin-bottom:14px;border-radius:14px;overflow:hidden}
+.galerija img{width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.galerija figure:hover img{transform:scale(1.05)}
+
+/* zašto */
+.zasto{background:var(--krem2)}
+.zasto-grid{margin-top:clamp(36px,5vw,56px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px)}
+@media(max-width:860px){.zasto-grid{grid-template-columns:1fr}}
+.zasto-grid div{border-top:1px solid var(--zlato);padding-top:18px}
+.zasto-grid h3{font-size:30px}
+.zasto-grid p{margin-top:8px;color:var(--siv);font-size:15.5px}
+
+/* kontakt */
+.kontakt-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+@media(max-width:860px){.kontakt-grid{grid-template-columns:1fr}}
+.sati{list-style:none;margin-top:26px;border-top:1px solid var(--linija)}
+.sati li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--linija)}
+.sati li.danas{font-weight:700;color:var(--vino)}
+.adresa{margin-top:24px;font-size:17px}
+.adresa b{display:block;font:500 34px/1.05 'Cormorant Garamond',serif}
+.kontakt-slika{border-radius:999px 999px 18px 18px;overflow:hidden;aspect-ratio:4/5;max-width:440px;justify-self:end}
+.kontakt-slika img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.kontakt-slika{justify-self:center;max-width:340px}}
+footer{padding-block:34px 40px;border-top:1px solid var(--linija);font-size:14px;color:var(--siv)}
+footer .w{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){.dugme:hover{transform:none}}

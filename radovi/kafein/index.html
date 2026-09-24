@@ -7,9 +7,9 @@
 <meta name="description" content="Meni i cenovnik — Kafein, Beograd. Na 10 jezika.">
 <meta name="theme-color" content="#F2F0EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14110E" media="(prefers-color-scheme: dark)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..700&display=swap" rel="stylesheet">
+<!-- premium-kit -->
+<link rel="stylesheet" href="../../assets/premium/fonts/fonts.css">
+<link rel="stylesheet" href="../../assets/premium/premium.css">
 <style>
 /* ---------- tokeni: svetla tema je osnova ---------- */
 :root{
@@ -187,7 +187,7 @@ h2{
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
-<body>
+<body data-premium="auto">
 <div class="omot">
   <header class="hero" id="hero">
     <div class="hero-tekst pad">
@@ -423,5 +423,9 @@ h2{
   crtaj(pocetniJezik());
 })();
 </script>
+<script defer src="../../assets/premium/vendor/lenis.min.js"></script>
+<script defer src="../../assets/premium/vendor/gsap.min.js"></script>
+<script defer src="../../assets/premium/vendor/ScrollTrigger.min.js"></script>
+<script defer src="../../assets/premium/premium.js"></script>
 </body>
 </html>

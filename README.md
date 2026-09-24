@@ -11,3 +11,8 @@ arapski, spanski, italijanski, francuski), imaju rucni prekidac
 svetle/tamne teme i prepoznaju jezik telefona.
 
 Demo primeri. Nisu zvanicne stranice objekata.
+
+## 2026 — premium nadogradnja
+- `radovi/premium/ostrica/` — animirani primer (izmišljena firma): glatki skrol, animirani naslovi, rotirajući stub
+- svi primeri: lokalni fontovi + animacije (`assets/premium/`, auto-mod — animira sadržaj ispod prvog ekrana)
+- naslovna: slike svih primera (`assets/img/radovi/`)

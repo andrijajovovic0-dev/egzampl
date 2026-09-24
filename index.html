@@ -1,31 +1,37 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="sr" data-pm-anchor-offset="-20">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sajt Servis — radovi</title>
-<meta name="description" content="Primeri sajtova i QR menija koje pravi Sajt Servis. Otvaraju se na svakom telefonu.">
+<meta name="description" content="Primeri sajtova i QR menija koje pravi Sajt Servis. Otvaraju se na svakom telefonu — sada i sa animacijama.">
 <meta name="theme-color" content="#F4F1EB" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('pm-pending');setTimeout(function(){document.documentElement.classList.remove('pm-pending')},2500)</script>
+<link rel="preload" href="assets/premium/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/premium/fonts/fonts.css">
+<link rel="stylesheet" href="assets/premium/premium.css">
 <style>
-:root{--paper:#F4F1EB;--ink:#181512;--muted:#5C5650;--raise:#FFF;--zlato:#9A6B12;
-      --zelena:#2F5D4E;--line:#E2DCD2;--senka:rgba(24,21,18,.08);--g:22px}
+:root{--paper:#F4F1EB;--ink:#181512;--muted:#5C5650;--raise:#FFF;--zlato:#906410;
+      --zelena:#2F5D4E;--line:#E2DCD2;--senka:rgba(24,21,18,.08);--g:clamp(20px,5vw,44px)}
 @media (prefers-color-scheme:dark){:root:not([data-tema]){
   --paper:#121110;--ink:#F1ECE3;--muted:#A59C8F;--raise:#1B1917;--zlato:#D9A441;
   --zelena:#7FBBA4;--line:#2B2621;--senka:rgba(0,0,0,.45)}}
 :root[data-tema="dark"]{--paper:#121110;--ink:#F1ECE3;--muted:#A59C8F;--raise:#1B1917;
   --zlato:#D9A441;--zelena:#7FBBA4;--line:#2B2621;--senka:rgba(0,0,0,.45)}
 :root[data-tema="light"]{--paper:#F4F1EB;--ink:#181512;--muted:#5C5650;--raise:#FFF;
-  --zlato:#9A6B12;--zelena:#2F5D4E;--line:#E2DCD2;--senka:rgba(24,21,18,.08)}
-*{box-sizing:border-box}html,body{margin:0}
+  --zlato:#906410;--zelena:#2F5D4E;--line:#E2DCD2;--senka:rgba(24,21,18,.08)}
+:root{--pm-accent:var(--zlato);--pm-line:var(--line)}
+*{box-sizing:border-box}html,body{margin:0;overflow-x:clip}
 body{background:var(--paper);color:var(--ink);font-family:Archivo,"Segoe UI",system-ui,sans-serif;
   font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
-main{max-width:660px;margin:0 auto;padding-inline:var(--g);padding-block:0 60px}
-.vrh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:24px}
-.marka{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:var(--g)}
+.vrh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.marka{font-size:17px;font-weight:700;letter-spacing:-.01em;text-decoration:none;color:inherit}
+.marka span{color:var(--zlato)}
+.vrh-desno{display:flex;align-items:center;gap:10px}
+.vrh-desno a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:9px 12px}
+.vrh-desno a:hover{color:var(--ink)}
 .tema{width:40px;height:40px;display:grid;place-items:center;cursor:pointer;color:var(--ink);
   border:1px solid var(--line);background:var(--raise);border-radius:11px;flex:0 0 auto}
 .tema svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
@@ -35,97 +41,215 @@ main{max-width:660px;margin:0 auto;padding-inline:var(--g);padding-block:0 60px}
 @media (prefers-color-scheme:dark){:root:not([data-tema]) .tema .sunce{display:none}
   :root:not([data-tema]) .tema .mesec{display:block}}
 .tema:focus-visible,a:focus-visible{outline:2px solid var(--zlato);outline-offset:3px}
-h1{margin:22px 0 0;font-size:clamp(31px,8.4vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.05;text-wrap:balance}
-.uvod{margin:14px 0 0;font-size:17px;color:var(--muted);max-width:44ch}
-h2{margin:40px 0 4px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--zlato)}
-.cena-red{margin:0 0 15px;font-size:14px;color:var(--muted)}
-.cena-red b{color:var(--ink);font-weight:600}
-ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-a.kart{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:var(--raise);
-  border:1px solid var(--line);border-radius:13px;padding:16px 17px;box-shadow:0 1px 3px var(--senka)}
-a.kart:hover{border-color:var(--zlato)}
-.tacka{flex:0 0 auto;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
-  font-size:12px;font-weight:700;letter-spacing:.02em;background:var(--paper);border:1px solid var(--line);color:var(--zelena)}
-.kart-t{flex:1 1 auto;min-width:0}
-.kart b{display:block;font-size:16.5px;font-weight:600}
-.kart span{display:block;margin-top:2px;font-size:13.5px;color:var(--muted)}
-.strelica{flex:0 0 auto;width:17px;height:17px;stroke:var(--muted);fill:none;stroke-width:2}
-footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-footer a{color:var(--zlato)}
+
+/* hero */
+.hero{padding-block:clamp(40px,8vw,90px) clamp(40px,6vw,70px)} /* samo vertikalno — bočni razmak dolazi iz .wrap */
+h1{margin:0;font-size:clamp(64px,17vw,220px);font-weight:800;letter-spacing:-.05em;line-height:.86}
+.hero-red{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,5vw,70px);align-items:end;margin-top:clamp(22px,4vw,40px)}
+@media(max-width:780px){.hero-red{grid-template-columns:1fr}}
+.uvod{margin:0;font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:44ch}
+.brojke{display:flex;gap:clamp(18px,4vw,44px)}
+.brojka b{display:block;font-size:clamp(34px,5vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.brojka span{display:block;margin-top:6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* traka */
+.traka{border-block:1px solid var(--line);padding:18px 0;font-weight:800;text-transform:uppercase;
+  font-size:clamp(20px,3.2vw,34px);letter-spacing:-.01em;--pm-gap:2rem;--pm-speed:40s}
+.traka span{display:inline-flex;align-items:center;gap:2rem}
+.traka span::after{content:"✦";color:var(--zlato);font-size:.55em}
+
+/* istaknut premium */
+.novo{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,56px);align-items:center;margin:clamp(56px,9vw,110px) 0 0;
+  padding:clamp(24px,4vw,44px);border-radius:24px;background:#0B0B0C;color:#F3EFE7;overflow:hidden;position:relative}
+@media(max-width:820px){.novo{grid-template-columns:1fr}}
+.novo .pm-frame{--c:#E8B84B;color:#E8B84B;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.novo h2{margin:18px 0 0;font-size:clamp(36px,5.6vw,72px);font-weight:800;letter-spacing:-.04em;line-height:.95}
+.novo h2 em{font-style:normal;color:#E8B84B}
+.novo p{color:#A7A198;max-width:42ch;margin:18px 0 0}
+.novo .dugmad{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.dugme{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none}
+.dugme.zl{background:#E8B84B;color:#111}
+.dugme.ob{border:1.5px solid #3a3a40;color:#F3EFE7}
+.dugme.zl:hover{background:#f0c763}.dugme.ob:hover{border-color:#E8B84B;color:#E8B84B}
+.novo .lista{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;color:#A7A198}
+.novo .pm-pill{border-color:#34343a}
+.novo-slika{position:relative;display:grid;place-items:center;min-height:360px}
+.novo-slika img{width:min(100%,300px);height:auto;border-radius:18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+.novo-slika .stub{position:absolute;right:-6%;bottom:-8%;width:34%;max-width:150px;height:auto;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))}
+
+/* grupe radova */
+.grupa{padding-top:clamp(64px,9vw,110px)}
+.grupa-vrh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px;
+  border-bottom:1px solid var(--line);padding-bottom:18px}
+.grupa h2{margin:0;font-size:clamp(30px,4.6vw,54px);font-weight:800;letter-spacing:-.035em;line-height:1}
+.grupa .cena{font-size:14.5px;color:var(--muted)}
+.grupa .cena b{color:var(--ink);font-size:20px;font-weight:800}
+.kartice{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.kartice{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.kartice{grid-template-columns:1fr}}
+.kartica{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--raise);border:1px solid var(--line);
+  border-radius:18px;overflow:hidden;box-shadow:0 1px 3px var(--senka);transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s,border-color .3s}
+.kartica:hover{transform:translateY(-6px);border-color:var(--zlato);box-shadow:0 26px 44px -28px var(--senka)}
+.kartica .slika{aspect-ratio:4/3;overflow:hidden;background:var(--paper);border-bottom:1px solid var(--line)}
+.kartica .slika img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.kartica:hover .slika img{transform:scale(1.05)}
+.kartica .tekst{padding:16px 18px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.kartica b{display:block;font-size:17px;font-weight:700}
+.kartica span.opis{display:block;margin-top:2px;font-size:13.5px;color:var(--muted)}
+.kartica .stil{flex:none;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--zelena);
+  border:1px solid var(--line);border-radius:999px;padding:5px 9px}
+
+/* radovi (4 paketa) */
+.radovi{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3vw,40px)}
+@media(max-width:820px){.radovi{grid-template-columns:1fr}}
+.rad{display:flex;flex-direction:column;gap:16px;text-decoration:none;color:inherit}
+.rad-media{position:relative;aspect-ratio:16/11;border-radius:20px;overflow:hidden;background:var(--c);isolation:isolate}
+.rad-media::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 20% 0%,rgba(255,255,255,.14),transparent 60%);pointer-events:none}
+.rad-media .desk{position:absolute;display:block;left:6%;top:9%;width:74%;border-radius:10px;overflow:hidden;box-shadow:0 30px 50px -24px rgba(0,0,0,.55);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.rad-media .desk img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.rad-media .tel{position:absolute;display:block;right:6%;top:18%;width:25%;aspect-ratio:9/19.5;border-radius:20px;border:5px solid #0F0F10;overflow:hidden;background:#0F0F10;box-shadow:0 30px 50px -20px rgba(0,0,0,.6);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.rad-media .tel img{width:100%;height:100%;object-fit:cover;object-position:top}
+.rad:hover .desk{transform:translateY(-8px)}
+.rad:hover .tel{transform:translateY(-14px) rotate(-1.5deg)}
+.rad-info .paket{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--zlato)}
+.rad-info h3{margin:6px 0 0;font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1}
+.rad-info .gde{display:block;margin-top:6px;color:var(--muted);font-size:14.5px}
+.rad-info .cena-r{display:block;margin-top:10px;font-size:14.5px;color:var(--muted)}
+.rad-info .cena-r b{color:var(--ink);font-size:20px;font-weight:800}
+.rad-info p{margin:10px 0 0;color:var(--muted);max-width:52ch}
+.rad-info .tagovi{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.rad-info .pm-pill{font-size:12.5px}
+
+footer{margin-top:clamp(70px,10vw,120px);padding:26px 0 40px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--ink);text-decoration-color:var(--zlato);text-underline-offset:3px} /* kontrast 4.5:1+ */
 footer p{margin:0 0 6px}
 </style>
 </head>
 <body>
-<main>
-  <header class="vrh">
-    <span class="marka">Sajt Servis</span>
+<div class="pm-progress" aria-hidden="true"></div>
+<header class="wrap vrh">
+  <a class="marka" href="https://sajtservis.github.io/">Sajt <span>Servis</span></a>
+  <div class="vrh-desno">
+    <a href="https://sajtservis.github.io/primeri.html">Glavni sajt</a><a href="https://sajtservis.github.io/kontakt.html">Zatražite sajt</a>
     <button class="tema" id="tema" type="button" aria-label="Promeni temu" title="Promeni temu">
       <svg class="sunce" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2M12 19.2v2M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M2.8 12h2M19.2 12h2M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5"/></svg>
       <svg class="mesec" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
     </button>
-  </header>
+  </div>
+</header>
 
-  <h1>Radovi</h1>
-  <p class="uvod">Svaki primer je živa stranica — otvorite je na telefonu, promenite temu, probajte jezike, zakažite termin. Nije slika.</p>
+<main>
+  <section class="wrap hero" aria-labelledby="naslov">
+    <h1 id="naslov">Radovi</h1>
+    <div class="hero-red">
+      <p class="uvod" data-reveal data-reveal-delay="0.3">Pet celih sajtova za pet izmišljenih biznisa — po jedan za svaki paket. Otvorite ih na telefonu: izračunajte cenu servisa, zakažite termin, promenite jezik menija. Nisu slike.</p>
+      <div class="brojke" data-reveal data-reveal-delay="0.45">
+        <div class="brojka"><b data-count="5">5</b><span>sajtova</span></div>
+        <div class="brojka"><b data-count="3">3</b><span>jezika</span></div>
+        <div class="brojka"><b>0 €</b><span>avansa</span></div>
+      </div>
+    </div>
+  </section>
 
-  <h2>Jednostrani sajt</h2>
-  <p class="cena-red"><b>75 €</b> izrada · 25 €/mes domen, hosting i izmene</p>
-  <ul>
-    <li><a class="kart" href="./radovi/jednostrani/klasican/"><span class="tacka">Kl</span>
-      <span class="kart-t"><b>Vunena Nit</b><span>Krojački atelje — klasičan, serif, mirno</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-    <li><a class="kart" href="./radovi/jednostrani/cist/"><span class="tacka">Či</span>
-      <span class="kart-t"><b>Prizma</b><span>Knjigovodstvena agencija — čist, mnogo belog</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-    <li><a class="kart" href="./radovi/jednostrani/tamni/"><span class="tacka">Ta</span>
-      <span class="kart-t"><b>Kovač</b><span>Auto detailing — tamni, jak kontrast</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-  </ul>
+  <div class="traka" data-marquee aria-label="Imena primera">
+    <div><span>Klip</span><span>Jasen</span><span>Kadifa</span><span>Lipa</span><span>Oštrica</span></div>
+  </div>
 
-  <h2>Sajt sa zakazivanjem</h2>
-  <p class="cena-red"><b>200 €</b> izrada · 25 €/mes domen, hosting i izmene</p>
-  <ul>
-    <li><a class="kart" href="./radovi/zakazivanje/klasican/"><span class="tacka">Kl</span>
-      <span class="kart-t"><b>Salon Verena</b><span>Frizerski salon — klasičan, serif, topli tonovi</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-    <li><a class="kart" href="./radovi/zakazivanje/cist/"><span class="tacka">Či</span>
-      <span class="kart-t"><b>Ordinacija Pavlović</b><span>Stomatolog — čist, mirno, tirkizni akcenat</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-    <li><a class="kart" href="./radovi/zakazivanje/tamni/"><span class="tacka">Ta</span>
-      <span class="kart-t"><b>Ring 11</b><span>Boks klub — tamni, jak kontrast</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-  </ul>
+  <div class="wrap">
+    <article class="novo" aria-labelledby="naslovNovo">
+      <div>
+        <span class="pm-frame" data-reveal>Animirani sajt · u svakom paketu</span>
+        <h2 id="naslovNovo" data-reveal="words">Sajt koji se <em>pomera</em> dok ga listate.</h2>
+        <p data-reveal>„Oštrica” — berbernica sa glatkim skrolom, naslovima koji se otkrivaju, rotirajućim stubom i cenovnikom sa filterom. Ovako se ponašaju svi naši sajtovi, po istoj ceni.</p>
+        <div class="dugmad" data-reveal>
+          <a class="dugme zl" href="./radovi/premium/ostrica/">Otvorite primer →</a>
+          <a class="dugme ob" href="https://sajtservis.github.io/kontakt.html">Hoću ovakav sajt</a>
+        </div>
+        <div class="lista" data-reveal><span class="pm-pill">Glatko skrolovanje</span><span class="pm-pill">Animirani naslovi</span><span class="pm-pill">Rotirajući objekat</span></div>
+      </div>
+      <a class="novo-slika" href="./radovi/premium/ostrica/" aria-label="Otvorite primer Oštrica">
+        <img src="assets/img/radovi/ostrica-tel.webp" alt="Početna strana primera Oštrica na telefonu" width="480" height="1040" data-reveal="clip">
+        <img class="stub" src="radovi/premium/ostrica/pole/f-12.webp" alt="" width="460" height="1000" data-parallax="0.35">
+      </a>
+    </article>
+  </div>
 
-  <h2>Sajt sa galerijom</h2>
-  <p class="cena-red"><b>125 €</b> izrada · 25 €/mes domen, hosting i izmene</p>
-  <ul>
-    <li><a class="kart" href="./radovi/galerija/klasican/"><span class="tacka">Kl</span>
-      <span class="kart-t"><b>Glina i Vatra</b><span>Keramička radionica — klasičan, serif, topla glina</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-    <li><a class="kart" href="./radovi/galerija/cist/"><span class="tacka">Či</span>
-      <span class="kart-t"><b>Studio Prelom</b><span>Fotograf venčanja — čist, mreža, mnogo belog</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-    <li><a class="kart" href="./radovi/galerija/tamni/"><span class="tacka">Ta</span>
-      <span class="kart-t"><b>Igla i Mastilo</b><span>Tattoo studio — tamni, zlatni akcenat</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-  </ul>
-
-  <h2>QR meni i stranica lokala</h2>
-  <p class="cena-red"><b>30 €</b> izrada · 15 €/mes izmene cena</p>
-  <ul>
-    <li><a class="kart" href="./radovi/blagoje/"><span class="tacka">10</span>
-      <span class="kart-t"><b>Blagoje Bistro</b><span>Stranica lokala na 10 jezika — Banovo Brdo</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-    <li><a class="kart" href="./radovi/kafein/"><span class="tacka">10</span>
-      <span class="kart-t"><b>Kafein</b><span>QR meni sa cenovnikom na 10 jezika — Beograd</span></span>
-      <svg class="strelica" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></li>
-  </ul>
-
-  <footer>
-    <p>Sajt Servis · <a href="https://instagram.com/sajt_servis.rs">@sajt_servis.rs</a></p>
-    <p>Primeri su izmišljene firme, osim onih rađenih po dogovoru. Nisu zvanične stranice objekata.</p>
-  </footer>
+  <section class="wrap grupa" aria-labelledby="g1">
+    <div class="grupa-vrh">
+      <h2 id="g1" data-reveal="words">Po jedan za svaki paket</h2>
+      <span class="cena" data-reveal>Cene su jednokratne · održavanje 25 €/mes (QR meni 15 €/mes)</span>
+    </div>
+    <div class="radovi">
+      <a class="rad" href="./radovi/klip/" style="--c:#1B1D21" data-reveal>
+        <div class="rad-media">
+          <span class="desk"><img src="assets/img/radovi/klip-desk.webp" alt="" width="960" height="600" loading="lazy" decoding="async"></span>
+          <span class="tel"><img src="assets/img/radovi/klip-tel.webp" alt="" width="480" height="1040" loading="lazy" decoding="async"></span>
+        </div>
+        <div class="rad-info">
+          <span class="paket">Jednostrani sajt</span>
+          <h3>Klip</h3>
+          <span class="gde">Auto servis · Novi Sad</span>
+          <span class="cena-r"><b>150 €</b> · prvih pet 75 €</span>
+          <p>Cene unapred, kalkulator malog servisa i oznaka „otvoreno sada”.</p>
+          <span class="tagovi"><span class="pm-pill">Kalkulator cene</span><span class="pm-pill">Otvoreno sada</span><span class="pm-pill">Poziv jednim dodirom</span></span>
+        </div>
+      </a>
+      <a class="rad" href="./radovi/jasen/" style="--c:#3B2A1E" data-reveal>
+        <div class="rad-media">
+          <span class="desk"><img src="assets/img/radovi/jasen-desk.webp" alt="" width="960" height="600" loading="lazy" decoding="async"></span>
+          <span class="tel"><img src="assets/img/radovi/jasen-tel.webp" alt="" width="480" height="1040" loading="lazy" decoding="async"></span>
+        </div>
+        <div class="rad-info">
+          <span class="paket">Sajt sa galerijom</span>
+          <h3>Jasen</h3>
+          <span class="gde">Stolarska radionica · Kraljevo</span>
+          <span class="cena-r"><b>250 €</b> · prvih pet 125 €</span>
+          <p>Galerija sa filterom i uvećanjem, skica pa gotov komad, upit za ponudu.</p>
+          <span class="tagovi"><span class="pm-pill">2 strane</span><span class="pm-pill">Galerija + lightbox</span><span class="pm-pill">Skica / gotovo</span></span>
+        </div>
+      </a>
+      <a class="rad" href="./radovi/kadifa/" style="--c:#4A1F2E" data-reveal>
+        <div class="rad-media">
+          <span class="desk"><img src="assets/img/radovi/kadifa-desk.webp" alt="" width="960" height="600" loading="lazy" decoding="async"></span>
+          <span class="tel"><img src="assets/img/radovi/kadifa-tel.webp" alt="" width="480" height="1040" loading="lazy" decoding="async"></span>
+        </div>
+        <div class="rad-info">
+          <span class="paket">Sajt sa zakazivanjem</span>
+          <h3>Kadifa</h3>
+          <span class="gde">Salon lepote · Beograd</span>
+          <span class="cena-r"><b>400 €</b> · prvih pet 200 €</span>
+          <p>Usluga, dan i slobodan termin u četiri koraka — potvrda i dodavanje u kalendar.</p>
+          <span class="tagovi"><span class="pm-pill">Online zakazivanje</span><span class="pm-pill">Cenovnik po grupama</span><span class="pm-pill">.ics kalendar</span></span>
+        </div>
+      </a>
+      <a class="rad" href="./radovi/lipa/" style="--c:#27402F" data-reveal>
+        <div class="rad-media">
+          <span class="desk"><img src="assets/img/radovi/lipa-desk.webp" alt="" width="960" height="600" loading="lazy" decoding="async"></span>
+          <span class="tel"><img src="assets/img/radovi/lipa-tel.webp" alt="" width="480" height="1040" loading="lazy" decoding="async"></span>
+        </div>
+        <div class="rad-info">
+          <span class="paket">QR meni</span>
+          <h3>Lipa</h3>
+          <span class="gde">Kafe i bašta · Niš</span>
+          <span class="cena-r"><b>30 €</b> · prvih pet 15 €</span>
+          <p>Meni na tri jezika, pretraga, alergeni i kategorije koje prate skrol.</p>
+          <span class="tagovi"><span class="pm-pill">SR · EN · DE</span><span class="pm-pill">Pretraga</span><span class="pm-pill">Alergeni</span></span>
+        </div>
+      </a>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p>Sajt Servis · <a href="https://instagram.com/sajt_servis.rs">@sajt_servis.rs</a> · <a href="https://sajtservis.github.io/">sajtservis.github.io</a></p>
+      <p>Klip, Jasen, Kadifa, Lipa i Oštrica su izmišljene firme. Fotografije su iz besplatnih arhiva (CC0).</p>
+    </div>
+  </div>
+</footer>
+
 <script>
 (function(){
   var k="tema-radovi",r=document.documentElement,s=null;
@@ -139,5 +263,9 @@ footer p{margin:0 0 6px}
     try{localStorage.setItem(k,n)}catch(e){}});
 })();
 </script>
+<script defer src="assets/premium/vendor/lenis.min.js"></script>
+<script defer src="assets/premium/vendor/gsap.min.js"></script>
+<script defer src="assets/premium/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/premium/premium.js"></script>
 </body>
 </html>

@@ -7,9 +7,9 @@
 <meta name="description" content="Blagoje Bistro, Banovo Brdo — demo QR stranice na 10 jezika.">
 <meta name="theme-color" content="#F4F1EB" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..700&display=swap" rel="stylesheet">
+<!-- premium-kit -->
+<link rel="stylesheet" href="../../assets/premium/fonts/fonts.css">
+<link rel="stylesheet" href="../../assets/premium/premium.css">
 <style>
 :root{
   --paper:#F4F1EB; --ink:#181512; --muted:#5C5650; --raise:#FFFFFF;
@@ -138,7 +138,7 @@ section{margin-top:38px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
-<body>
+<body data-premium="auto">
 <div class="omot">
   <header class="hero">
     <img id="hero-img" alt="">
@@ -288,5 +288,9 @@ section{margin-top:38px}
   crtaj(pocetni());
 })();
 </script>
+<script defer src="../../assets/premium/vendor/lenis.min.js"></script>
+<script defer src="../../assets/premium/vendor/gsap.min.js"></script>
+<script defer src="../../assets/premium/vendor/ScrollTrigger.min.js"></script>
+<script defer src="../../assets/premium/premium.js"></script>
 </body>
 </html>
